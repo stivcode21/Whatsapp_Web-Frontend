@@ -3,7 +3,7 @@ import React from 'react'
 export const App = () => {
   return (
     <>
-      <div>HOLA MUNDO!</div>
+      <div className='flex justify-end'>HOLA MUNDO!</div>
     </>
   )
 }

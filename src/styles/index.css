@@ -1,9 +1,3 @@
-body {
-    background-color: #000;
-    color: #fff;
-}
-
-div {
-    text-align: center;
-    font-size: 2rem;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
