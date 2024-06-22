@@ -1,10 +1,10 @@
 import React from 'react'
+import { AuthLogin } from './auth/auth-login'
 
 export const App = () => {
   return (
     <>
-      <div className='flex justify-end'>HOLA MUNDO!</div>
+      <AuthLogin />
     </>
   )
 }
-
