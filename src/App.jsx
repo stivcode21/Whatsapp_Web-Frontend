@@ -1,10 +1,10 @@
 import React from 'react'
-import { AuthLogin } from './auth/auth-login'
+import { WelcomePage } from './auth/welcome-page'
 
 export const App = () => {
   return (
     <>
-      <AuthLogin />
+      <WelcomePage />
     </>
   )
 }
