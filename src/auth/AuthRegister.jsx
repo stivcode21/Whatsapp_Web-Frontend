@@ -1,4 +1,4 @@
-import { Button, TextField, Box } from "@mui/material";
+import { Button, TextField, Box, IconButton } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SendIcon from '@mui/icons-material/Send';
@@ -15,14 +15,14 @@ export const AuthRegister = () => {
   return (
     <>
       <div class="container" className="h-screen w-full bg-clr-bg">
-        <header className="bg-clr-bg  pt-4 flex justify-between">
-          <button>
-            <ArrowBackIcon fontSize="large" className="text-clr-main ml-5" />
-          </button>
+        <header className="bg-clr-bg  px-6 h-20 flex items-center justify-between">
+          <IconButton>
+            <ArrowBackIcon sx={{ fontSize: 32 }} />
+          </IconButton>
           <h2 className="text-clr-main font-medium text-xl">Registro</h2>
-          <button>
-            <MoreVertIcon fontSize="large" className="text-clr-main mr-5" />
-          </button>
+          <IconButton>
+            <MoreVertIcon sx={{ fontSize: 32 }} />
+          </IconButton>
         </header>
 
         <Box component="form" onSubmit={handleSubmit}>
