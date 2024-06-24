@@ -4,7 +4,7 @@ export const WelcomePage = () => {
     return (
         <div className="bg-clr-bg">
             <div className="container mx-auto flex flex-col items-center justify-center h-screen text-clr-main text-center gap-5">
-                
+
                 <header className="">
                     <img className="w-[15rem] mb-4" src="/assets/graphic-first-screen.png" alt="Imagen de portada de la pagina" />
                     <h1 className="text-lg">Añade una cuenta</h1>
@@ -17,10 +17,10 @@ export const WelcomePage = () => {
                         nuestros servicios y ayudar a mantener WhatsApp
                         seguro y protegido. En los ajustes, puedes acceder a la
                         información de tu cuenta, administrarla y eliminarla. <a href="#" className="text-clr-primary"> Más
-                        información</a>
+                            información</a>
                     </p>
 
-                    <Button sx={{mt: '1.25rem', color: 'dark.main'}} variant="contained" backgroundColor="primary" size="small">
+                    <Button sx={{ mt: '1.25rem', color: 'dark.main' }} variant="contained" backgroundColor="primary" size="small">
                         Aceptar y continuar
                     </Button>
                 </main>
