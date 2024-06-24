@@ -2,7 +2,7 @@ import { Button } from "@mui/material"
 
 export const WelcomePage = () => {
     return (
-        <div className="bg-clr-bg">
+        <div className="bg-clr-bg px-6">
             <div className="container mx-auto flex flex-col items-center justify-center h-screen text-clr-main text-center gap-5">
 
                 <header className="">
