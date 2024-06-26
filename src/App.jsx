@@ -6,7 +6,7 @@ import { AuthLogin } from './auth/AuthLogin'
 export const App = () => {
   return (
     <>
-      <WelcomePage />
+      <AuthLogin />
     </>
   )
 }
