@@ -62,7 +62,7 @@ export const AuthRegister = () => {
                 sx={{ width: '100%', maxWidth: 300 }} />
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-              <EmojiEmotionsIcon sx={{ color: '#0BA884', mr: 1, my: 0.5}} />
+              <EmojiEmotionsIcon sx={{ color: '#0BA884', mr: 1, my: 0.5 }} />
               <TextField
                 id="info"
                 label="Info"
