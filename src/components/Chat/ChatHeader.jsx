@@ -1,8 +1,6 @@
-import React from "react";
 import { MdOutlineCameraAlt } from "react-icons/md";
 import { IoSearch } from "react-icons/io5";
 import { GoKebabHorizontal } from "react-icons/go";
-import Divider from "@mui/material/Divider";
 
 const ChatHeader = () => {
   return (

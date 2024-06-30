@@ -1,4 +1,3 @@
-import React from "react";
 import ChatList from "./ChatList";
 import { CiLock } from "react-icons/ci";
 import ChatHeader from "./ChatHeader";

@@ -1,4 +1,3 @@
-import React from "react";
 import { BsCheckAll } from "react-icons/bs";
 import data from "../../database/data.json";
 import List from "@mui/material/List";
