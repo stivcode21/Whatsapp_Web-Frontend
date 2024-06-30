@@ -2,7 +2,6 @@ import ChatList from "./ChatList";
 import ChatHeader from "./ChatHeader";
 import FilterButtons from "./FilterButtons";
 import NoChats from "./NoChats";
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useState, useMemo } from "react";
 import data from "../../database/chats.json";
 
@@ -20,7 +19,7 @@ const Chat = () => {
   }, [filter])
 
   return (
-    <>
+    <section className="flex flex-col">
       <ChatHeader>
         <FilterButtons onChange={handleChange} />
       </ChatHeader>
@@ -29,16 +28,7 @@ const Chat = () => {
           ? <ChatList list={visibleList} />
           : <NoChats />
       }
-      <footer className="bg-clr-bg flex px-5 justify-center pb-5">
-        <LockOutlinedIcon className="text-clr-secondary" />
-        <p className="text-clr-secondary text-center">
-          Tus mensajes personales están{" "}
-          <span className="text-clr-primary">
-            cifrados de extremo a extremo.
-          </span>
-        </p>
-      </footer>
-    </>
+    </section>
   );
 };
 

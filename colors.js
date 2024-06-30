@@ -2,13 +2,14 @@ import { alpha } from "@mui/material";
 
 // colors.js
 const colors = {
-    green: '#0BA884',   // Primary color
-    blue: '#3EA5C3',   // Blue Gray for subtle backgrounds or text
-    blueGrey: '#6F8997',
-    blueDark: '#132026',   // Dark Blue for dark mode backgrounds
-    grey: '#222',
-    lightGray: '#CED1D4',   // Light Gray for backgrounds or text
-    mediumGray: '#6A747B'    // Medium Gray for secondary text or borders
+    green     : '#0BA884',   // Primary color
+    blue      : '#3EA5C3',   // Blue Gray for subtle backgrounds or text
+    blueGrey  : '#6F8997',
+    blueDark  : '#132026',   // Dark Blue for dark mode backgrounds
+    grey      : '#26353D',
+    lightGray : '#CED1D4',   // Light Gray for backgrounds or text
+    mediumGray: '#6A747B',
+    red: '#FF0000'    // Medium Gray for secondary text or borders Stashed changes
 };
 
 export const PalleteColors = {
@@ -36,5 +37,8 @@ export const PalleteColors = {
         500: alpha(colors.blue, .5),
         700: alpha(colors.blue, .7),
     },
+    red: {
+        main: colors.red
+    }
 }
 

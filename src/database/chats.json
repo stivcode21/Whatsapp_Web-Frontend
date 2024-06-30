@@ -5,7 +5,8 @@
         "LastTime_Message": "2:53p.m",
         "LastContent_Message": "A eso se le llama estrategia",
         "unread": true,
-        "group": false
+        "group": false,
+        "isActive": true
     },
     {
         "PhotoUser": "../../assets/avatar-placeholder.jpg",
