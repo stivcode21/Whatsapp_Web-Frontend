@@ -1,10 +1,9 @@
 import { MdOutlineCameraAlt } from "react-icons/md";
 import { IoSearch } from "react-icons/io5";
 import { GoKebabHorizontal } from "react-icons/go";
-import Divider from "@mui/material/Divider";
-import Box from '@mui/material/Box';
+import { Box, Divider } from "@mui/material";
 
-const ChatHeader = () => {
+const ChatHeader = ({ children }) => {
   return (
     <section className="bg-clr-bg">
       <Box className="flex items-center justify-between px-4 h-14">
@@ -20,6 +19,7 @@ const ChatHeader = () => {
         </div>
       </Box>
       <Divider className="bg-clr-divider" />
+      { children }
     </section>
   );
 };
