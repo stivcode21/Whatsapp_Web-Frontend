@@ -5,7 +5,7 @@ import NoChats from "./NoChats";
 import { useState, useMemo } from "react";
 import data from "../../database/chats.json";
 
-const Chat = () => {
+export default function Chat() {
   const [filter, setFilter] = useState("all")
 
   const handleChange = (event) => {
@@ -31,5 +31,3 @@ const Chat = () => {
     </section>
   );
 };
-
-export default Chat;
