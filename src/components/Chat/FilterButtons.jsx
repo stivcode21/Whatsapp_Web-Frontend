@@ -1,4 +1,4 @@
-import { Box} from "@mui/material";
+import { Box } from "@mui/material";
 import Select from "./Select";
 
 export default function FilterButtons({ onChange }) {
