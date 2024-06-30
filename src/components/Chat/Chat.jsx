@@ -4,7 +4,7 @@ import FilterButtons from "./FilterButtons";
 import NoChats from "./NoChats";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useState, useMemo } from "react";
-import data from "../../database/data.json";
+import data from "../../database/chats.json";
 
 const Chat = () => {
   const [filter, setFilter] = useState("all")
