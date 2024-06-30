@@ -1,10 +1,12 @@
-import React from 'react'
-import ChatHeader from '../Chat/ChatHeader'
+import React from "react";
+import Chat from "../Chat/Chat";
 
 const Principal = () => {
   return (
-    <ChatHeader />
-  )
-}
+    <>
+      <Chat />
+    </>
+  );
+};
 
-export default Principal
+export default Principal;
