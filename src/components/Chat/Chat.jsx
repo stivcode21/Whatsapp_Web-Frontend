@@ -1,13 +1,11 @@
 import ChatList from "./ChatList";
 import { CiLock } from "react-icons/ci";
 import ChatHeader from "./ChatHeader";
-import Divider from "@mui/material/Divider";
 
 const Chat = () => {
   return (
     <>
       <ChatHeader />
-      <Divider className="bg-clr-divider" />
       <ChatList />
       <footer className="bg-clr-bg flex px-5 justify-center pb-5">
         <CiLock className="text-clr-secondary" />
