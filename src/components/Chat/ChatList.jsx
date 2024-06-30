@@ -1,14 +1,13 @@
 import { BsCheckAll } from "react-icons/bs";
-import data from "../../database/data.json";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 
-const ChatList = () => {
+const ChatList = ({ list }) => {
   return (
     <List className="bg-clr-bg">
-      {data.map((chat, index) => (
+      {list.map((chat, index) => (
         <ListItem key={index}>
           <div className="flex w-full gap-2 relative py-2">
             <Stack>
