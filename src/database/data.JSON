@@ -1,0 +1,18 @@
+[
+    {
+        "PhotoUser": "../../assets/McLovin.jpg",
+        "nameUser": "McLovin",
+        "LastTime_Message": "2:53p.m",
+        "LastContent_Message": "A eso se le llama estrategia",
+        "unread": true,
+        "group": false
+    },
+    {
+        "PhotoUser": "../../assets/avatar-placeholder.jpg",
+        "nameUser": "Gael",
+        "LastTime_Message": "2:53p.m",
+        "LastContent_Message": "Ya quedó el filtradoo!",
+        "unread": false,
+        "group": false
+    }
+]
