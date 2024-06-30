@@ -1,11 +1,14 @@
 import ChatList from "./ChatList";
 import { CiLock } from "react-icons/ci";
 import ChatHeader from "./ChatHeader";
+import FilterButtons from "./FilterButtons";
 
 const Chat = () => {
   return (
     <>
-      <ChatHeader />
+      <ChatHeader>
+        <FilterButtons />
+      </ChatHeader>
       <ChatList />
       <footer className="bg-clr-bg flex px-5 justify-center pb-5">
         <CiLock className="text-clr-secondary" />
