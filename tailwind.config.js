@@ -16,7 +16,8 @@ export default {
         'button-bg': '#26353D',
         'button-text': '#8696A0',
         'radio-selected': '#0A332C',
-        'text-radio-selected': '#00A884'
+        'text-radio-selected': '#00A884',
+        'read-message-icon': '#3EA5C3'
       }
     },
   },

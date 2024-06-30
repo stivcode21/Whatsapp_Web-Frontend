@@ -21,7 +21,7 @@ const ChatList = ({ list }) => {
                 </span>
               </div>
               <div className="flex items-center">
-                <BsCheckAll className="text-clr-secondary" size={"1.5rem"} />
+                <BsCheckAll className={chat.unread ? "text-clr-secondary" : "text-read-message-icon"} size={"1.5rem"} />
                 <span className="text-clr-secondary">
                   {chat.LastContent_Message}
                 </span>
