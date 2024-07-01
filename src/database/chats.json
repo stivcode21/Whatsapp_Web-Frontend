@@ -11,9 +11,64 @@
     {
         "PhotoUser": "../../assets/avatar-placeholder.jpg",
         "nameUser": "Gael",
-        "LastTime_Message": "2:53p.m",
+        "LastTime_Message": "8:00p.m",
         "LastContent_Message": "Ya quedó el filtradoo!",
         "unread": false,
-        "group": false
+        "group": false,
+        "isActive": false
+    },
+    {
+        "PhotoUser": "../../assets/avatar-placeholder.jpg",
+        "nameUser": "Stiven",
+        "LastTime_Message": "1:00a.m",
+        "LastContent_Message": "MELOOOOOOOOO",
+        "unread": false,
+        "group": false,
+        "isActive": false
+    },
+    {
+        "PhotoUser": "../../assets/avatar-placeholder.jpg",
+        "nameUser": "Mauro",
+        "LastTime_Message": "5:00p.m",
+        "LastContent_Message": "Puro Full-Stack",
+        "unread": true,
+        "group": false,
+        "isActive": true
+    },
+    {
+        "PhotoUser": "../../assets/avatar-placeholder.jpg",
+        "nameUser": "Mauro",
+        "LastTime_Message": "5:00p.m",
+        "LastContent_Message": "Puro Full-Stack",
+        "unread": true,
+        "group": false,
+        "isActive": true
+    },
+    {
+        "PhotoUser": "../../assets/avatar-placeholder.jpg",
+        "nameUser": "Mauro",
+        "LastTime_Message": "5:00p.m",
+        "LastContent_Message": "Puro Full-Stack",
+        "unread": true,
+        "group": false,
+        "isActive": true
+    },
+    {
+        "PhotoUser": "../../assets/avatar-placeholder.jpg",
+        "nameUser": "Mauro",
+        "LastTime_Message": "5:00p.m",
+        "LastContent_Message": "Puro Full-Stack",
+        "unread": true,
+        "group": false,
+        "isActive": true
+    },
+    {
+        "PhotoUser": "../../assets/avatar-placeholder.jpg",
+        "nameUser": "Mauro",
+        "LastTime_Message": "5:00p.m",
+        "LastContent_Message": "Puro Full-Stack",
+        "unread": true,
+        "group": false,
+        "isActive": true
     }
 ]
