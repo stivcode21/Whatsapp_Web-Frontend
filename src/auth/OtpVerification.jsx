@@ -157,7 +157,7 @@ OTPInput.propTypes = {
   value: PropTypes.string.isRequired,
 };
 
-export default function OtpVerification() {
+export function OtpVerification() {
   const [otp, setOtp] = React.useState('');
 
   const handleSubmit = () => {
