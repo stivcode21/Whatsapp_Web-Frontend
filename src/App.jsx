@@ -10,7 +10,7 @@ export const App = () => {
     <>
       {/* <AuthLogin /> */}
       {/* < AuthCreateProfile /> */}
-     <OtpVerification/>
+    <OtpVerification/>
     </>
   );
 };
