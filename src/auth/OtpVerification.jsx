@@ -139,9 +139,11 @@ function OTPInput({ separator, length, value, onChange }) {
               height: '2rem',
               fontSize: '1.5rem',
               textAlign: 'center',
-              border: '1px solid #ccc',
+              border: '1px solid green',
               borderRadius: '4px',
               outline: 'none',
+              backgroundColor: 'transparent',
+              color: 'white'
             }}
             onKeyDown={(event) => handleKeyDown(event, index)}
             onChange={(event) => handleChange(event, index)}
