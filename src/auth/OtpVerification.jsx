@@ -135,8 +135,8 @@ function OTPInput({ separator, length, value, onChange }) {
             type="text"
             maxLength={1}
             style={{
-              width: '2rem',
-              height: '2rem',
+              width: '3rem',
+              height: '3rem',
               fontSize: '1.5rem',
               textAlign: 'center',
               border: '1px solid green',
