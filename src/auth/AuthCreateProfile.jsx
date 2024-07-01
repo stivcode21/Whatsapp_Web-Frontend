@@ -34,22 +34,22 @@ export const AuthCreateProfile = () => {
         </header>
 
         <Box component="form" onSubmit={handleSubmit}>
-          <div className="flex flex-col items-center justify-center text-clr-main text-center gap-5">
+          <div className="flex flex-col items-center justify-center text-clr-main text-center gap-5 w-full max-w-sm mx-auto">
             <div onClick={handleImageClick} className="mt-5 cursor-pointer relative">
               {image ? (
                 <img src={URL.createObjectURL(image)} className="border-4 border-grey-light outline outline-green-main outline-2" style={{ margin: 'auto', width: '120px', maxWidth: '300px', height: '120px', maxHeight: '500px', borderRadius: '100%', objectFit: 'cover' }} alt="foto de perfil" />
               ) : (
-                <img src="./assets/avatar-placeholder.jpg" className="border-4 border-grey-light outline outline-green-main outline-2" style={{ margin: 'auto', width: '120px', maxWidth: '300px', height: '120px', maxHeight: '500px', borderRadius: '100%', objectFit: 'cover' }} alt="avatar Placeholder" />
+                <img src="./assets/avatar-placeholder.jpg" className="border-8 border-white outline outline-green-main outline-4" style={{ margin: 'auto', width: '120px', maxWidth: '300px', height: '120px', maxHeight: '500px', borderRadius: '100%', objectFit: 'cover' }} alt="avatar Placeholder" />
               )}
               <input type="file" name="foto" id="foto" accept="image/*" ref={inputRef} onChange={handleImageChange} style={{ display: 'none' }} />
               <IconButton className="absolute bottom-7 left-9 ">
-                <CreateOutlinedIcon className="absolute bg-gray-50 rounded-full p-1.5 text-green-main hover:bg-grey-light" fontSize="large" />
+                <CreateOutlinedIcon className="absolute bg-white rounded-full p-1.5 text-green-700 hover:bg-white hover:text-green-main" fontSize="large" />
               </IconButton>
             </div>
 
 
 
-            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+            <Box sx={{ display: 'flex', alignItems: 'flex-end', width: '100%'}}>
               <TextField
                 id="TuNombre"
                 InputProps={{
@@ -70,14 +70,13 @@ export const AuthCreateProfile = () => {
                 }}
                 className="outline-green-main"
                 sx={{
-                  width: '350px',
-                  maxWidth: 350,
+                  width: '100%',
                   '& .MuiInputBase-input::placeholder': {
                     color: 'grey.medium',
                   },
                   '& .MuiOutlinedInput-root': {
                     '& fieldset': {
-                      borderColor: 'green.300',
+                      borderColor: 'green.700',
                     },
                     '&:hover fieldset': {
                       borderColor: 'green.main',
@@ -89,7 +88,7 @@ export const AuthCreateProfile = () => {
                 }}
               />
             </Box>
-            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+            <Box sx={{ display: 'flex', alignItems: 'flex-end', width: '100%' }}>
               <TextField
                 id="TuNombre"
                 InputProps={{
@@ -109,14 +108,13 @@ export const AuthCreateProfile = () => {
                   }
                 }}
                 sx={{
-                  width: '350px',
-                  maxWidth: 350,
+                  width: '100%',
                   '& .MuiInputBase-input::placeholder': {
                     color: 'grey.medium',
                   },
                   '& .MuiOutlinedInput-root': {
                     '& fieldset': {
-                      borderColor: 'green.300',
+                      borderColor: 'green.700',
                     },
                     '&:hover fieldset': {
                       borderColor: 'green.main',
@@ -130,8 +128,8 @@ export const AuthCreateProfile = () => {
 
 
 
-            <div className="w-80 px-0 pt-10 flex justify-between">
-              <Button variant="text" sx={{ mt: 3, color: 'gray' }} size="small" startIcon={<ArrowBackOutlinedIcon color="green" />}>
+            <div className=" px-0 pt-10 flex justify-between w-full">
+              <Button variant="text" sx={{ mt: 3, color: 'grey.medium' }} size="small" startIcon={<ArrowBackOutlinedIcon color="green" />}>
                 Regresar
               </Button>
 

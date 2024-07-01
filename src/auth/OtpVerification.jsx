@@ -133,18 +133,9 @@ function OTPInput({ separator, length, value, onChange }) {
               inputRefs.current[index] = ele;
             }}
             type="text"
+            className='text-grey-light w-8 h-8 sm:text-2xl sm:w-14 sm:h-14 text-center border border-green-700 focus:border-green-main outline-none bg-transparent rounded'
             maxLength={1}
-            style={{
-              width: '3rem',
-              height: '3rem',
-              fontSize: '1.5rem',
-              textAlign: 'center',
-              border: '1px solid green',
-              borderRadius: '4px',
-              outline: 'none',
-              backgroundColor: 'transparent',
-              color: 'white',
-            }}
+            
             onKeyDown={(event) => handleKeyDown(event, index)}
             onChange={(event) => handleChange(event, index)}
             onClick={(event) => handleClick(event, index)}
@@ -175,45 +166,47 @@ export default function OtpVerification() {
   };
 
   return (
-    <main className="bg-blue-dark w-screen h-screen flex flex-col items-center justify-center">
-      <header className="text-center mb-7">
-        <h1 className="text-white">Verificación de Email</h1>
-        <p className="text-grey-medium">
-          Ingresa el código enviado a{" "}
-          <span className="font-bold">gaelseg********@gmail.com</span>
-        </p>
-      </header>
-
-      <div className="mb-5">
-        <OTPInput value={otp} onChange={setOtp} length={6} /> {/* Aquí integras el componente OTPInput */}
-      </div>
-
-      <div className="flex flex-col justify-center">
-        <p className="text-grey-medium font-bold">¿No recibiste el código?</p>
-        <button className="text-green-main uppercase">Reenviar código</button>
-      </div>
-
-      <div className="w-80 px-0 pt-5 flex justify-between">
-        <Button
-          variant="text"
-          sx={{ mt: 3, color: "gray" }}
-          size="small"
-          startIcon={<ArrowBackOutlinedIcon color="green" />}
-        >
-          Regresar
-        </Button>
-
-        <Button
-          type="submit"
-          variant="text"
-          sx={{ mt: 3, color: "grey.light" }}
-          size="small"
-          endIcon={<ArrowForwardOutlinedIcon color="green" />}
-          onClick={handleSubmit}
-        >
-          Continuar
-        </Button>
-      </div>
-    </main>
+    <div className='bg-blue-dark'>
+      <main className="w-screen max-w-md mx-auto h-screen flex flex-col items-center justify-center px-6">
+        <header className="text-center mb-7">
+          <h1 className="text-grey-light text-xl mb-2">Verificación de Email</h1>
+          <p className="text-grey-medium text-sm">
+            Ingresa el código enviado a{" "}
+            <span className="font-bold">gaelseg********@gmail.com</span>
+          </p>
+        </header>
+      
+        <div className="mb-5">
+          <OTPInput value={otp} onChange={setOtp} length={6} /> {/* Aquí integras el componente OTPInput */}
+        </div>
+      
+        <div className="flex flex-col justify-center mt-8">
+          <p className="text-grey-medium font-bold pb-1">¿No recibiste el código?</p>
+          <button className="text-green-main uppercase">Reenviar código</button>
+        </div>
+      
+        <div className="px-0 m-14 flex justify-between w-full">
+          <Button
+            variant="text"
+            sx={{ mt: 3, color: "grey.medium" }}
+            size="small"
+            startIcon={<ArrowBackOutlinedIcon color="green" />}
+          >
+            Regresar
+          </Button>
+      
+          <Button
+            type="submit"
+            variant="text"
+            sx={{ mt: 3, color: "grey.light" }}
+            size="small"
+            endIcon={<ArrowForwardOutlinedIcon color="green" />}
+            onClick={handleSubmit}
+          >
+            Continuar
+          </Button>
+        </div>
+      </main>
+    </div>
   );
 }
