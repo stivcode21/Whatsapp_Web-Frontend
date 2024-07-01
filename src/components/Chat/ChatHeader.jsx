@@ -17,7 +17,7 @@ const ChatHeader = ({ children }) => {
           />
         </div>
       </Box>
-      <Divider className="bg-clr-divider" />
+      <Divider className="bg-grey-main" />
       {children}
     </section>
   );
