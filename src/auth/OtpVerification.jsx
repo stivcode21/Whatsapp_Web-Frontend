@@ -125,7 +125,7 @@ function OTPInput({ separator, length, value, onChange }) {
   };
 
   return (
-    <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+    <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}> {/* Aumenta el espacio entre inputs */}
       {new Array(length).fill(null).map((_, index) => (
         <React.Fragment key={index}>
           <input
@@ -143,7 +143,7 @@ function OTPInput({ separator, length, value, onChange }) {
               borderRadius: '4px',
               outline: 'none',
               backgroundColor: 'transparent',
-              color: 'white'
+              color: 'white',
             }}
             onKeyDown={(event) => handleKeyDown(event, index)}
             onChange={(event) => handleChange(event, index)}
