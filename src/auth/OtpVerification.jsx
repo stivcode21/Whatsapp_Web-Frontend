@@ -4,6 +4,7 @@ import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 import { Box } from '@mui/system';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function OTPInput({ separator, length, value, onChange }) {
   const inputRefs = React.useRef(new Array(length).fill(null));
@@ -192,7 +193,9 @@ export function OtpVerification() {
             size="small"
             startIcon={<ArrowBackOutlinedIcon color="green" />}
           >
-            Regresar
+            <Link to="/">
+              Regresar
+            </Link>
           </Button>
       
           <Button
@@ -203,7 +206,9 @@ export function OtpVerification() {
             endIcon={<ArrowForwardOutlinedIcon color="green" />}
             onClick={handleSubmit}
           >
-            Continuar
+            <Link to='/create-profile'>
+                Continuar
+            </Link>
           </Button>
         </div>
       </main>

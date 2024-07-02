@@ -5,6 +5,7 @@ import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 import PersonIcon from '@mui/icons-material/Person';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
+import { Link } from "react-router-dom";
 
 export const AuthCreateProfile = () => {
   const inputRef = useRef(null);
@@ -75,6 +76,8 @@ export const AuthCreateProfile = () => {
                     color: 'grey.medium',
                   },
                   '& .MuiOutlinedInput-root': {
+                    borderRadius: '16px',
+                    height: '3rem',
                     '& fieldset': {
                       borderColor: 'green.700',
                     },
@@ -90,7 +93,7 @@ export const AuthCreateProfile = () => {
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'flex-end', width: '100%' }}>
               <TextField
-                id="TuNombre"
+                id="TuInfo"
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -113,6 +116,8 @@ export const AuthCreateProfile = () => {
                     color: 'grey.medium',
                   },
                   '& .MuiOutlinedInput-root': {
+                    borderRadius: '16px',
+                    height: '3rem',
                     '& fieldset': {
                       borderColor: 'green.700',
                     },
@@ -130,11 +135,15 @@ export const AuthCreateProfile = () => {
 
             <div className=" px-0 pt-10 flex justify-between w-full">
               <Button variant="text" sx={{ mt: 3, color: 'grey.medium' }} size="small" startIcon={<ArrowBackOutlinedIcon color="green" />}>
-                Regresar
+                  <Link to='/create-profile'>
+                    Regresar
+                  </Link>
               </Button>
 
               <Button type="submit" variant="text" sx={{ mt: 3, color: 'grey.light' }} size="small" endIcon={<ArrowForwardOutlinedIcon color="green" />}>
-                Continuar
+                  <Link to='/main' >
+                      Continuar
+                  </Link>
               </Button>
             </div>
           </div>

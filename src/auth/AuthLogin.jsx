@@ -1,52 +1,90 @@
-import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
-import { Box, IconButton, TextField } from '@mui/material';
+import { Box, InputAdornment, TextField } from '@mui/material';
 import { Button } from "@mui/material"
 
-import EmailIcon from '@mui/icons-material/Email';
-import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
-
+import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import { Link } from 'react-router-dom';
 
 export const AuthLogin = () => {
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        console.log('Se guardo el email escrito por el usuario')
+    }
+    // ipconfig
+
     return (
-        <div className="bg-clr-bg">
-            <div className="container h-screen mx-auto">
-                <header className="h-20 flex justify-between items-center px-6">
-                    <IconButton>
-                        <ArrowBackOutlinedIcon sx={{ fontSize: 32 }} />
-                    </IconButton>
-
-                    <h1 className='text-2xl text-clr-main'>Ingresa su Email</h1>
-
-                    <IconButton>
-                        <MoreVertOutlinedIcon sx={{ fontSize: 32 }} />
-                    </IconButton>
-                </header>
-
-                <main className="text-center text-balance px-6">
-                    <p className="text-balance text-sm text-clr-secondary text-center mx-auto">
-                        WhatsApp necesita verificar tu Email (es posible que tu operador aplique cargos.)
-                        <a href="#" className="text-clr-primary"> ¿Cual es mi Email?</a>
+        <div className="bg-blue-dark h-screen flex">
+            {/* Formulario Login */}
+            <section className='flex-1 px-6 self-center'>
+                <Box component='form' onSubmit={handleSubmit} className='text-center w-full max-w-sm mx-auto'>
+                    <h1 className='text-grey-light text-2xl'>Crea o ingresa a tu cuenta</h1>
+                    <p className='text-sm text-grey-medium mt-2 mb-10'>
+                        Solo necesitamos tu email
                     </p>
 
-                    <Box component="form" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                        <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                            <EmailIcon posi sx={{ color: '#0BA884', mr: 1 }} />
-                            <TextField
-                                type='email'
-                                id="email"
-                                label="Email"
-                                required
-                                variant="standard"
-                                sx={{ marginTop: 5, width: '100%', maxWidth: 300 }} />
-                        </Box>
 
-                        <Button type='submit' sx={{ mt: '1.25rem', color: 'dark.main', padding: 1, marginTop: 2 }} variant="contained" backgroundColor="primary" size="small">
-                            Siguiente
+                    {/* INPUT EMAIL */}
+                    <TextField
+                        
+                        id="email"
+                        placeholder="example@gmail.com"
+                        variant="outlined"
+                        type='email'
+                        autoComplete="off"
+                        required
+
+                        InputProps= {{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <EmailOutlinedIcon sx={{color: 'green.main'}} fontSize='small' />
+                                </InputAdornment>
+                              ),
+                        }}
+
+
+                        inputProps={{
+                            sx: {
+                                color: 'grey.light'
+                            }  
+                        }}
+
+                        sx={{
+                            width: '100%',
+                            '& .MuiInputBase-input::placeholder': {
+                                color: 'grey.medium',
+                            },
+                            '& .MuiOutlinedInput-root': {
+                                borderRadius: '16px',
+                                height: '3rem',
+                                '& fieldset': {
+                                    borderColor: 'green.700',
+                                },
+                                '&:hover fieldset , &.Mui-focused fieldset': {
+                                    borderColor: 'green.main',
+                                }
+                            },
+                        }} />
+
+                    {/* BUTTON */}
+                    <div className='flex justify-end'>
+                        <Button type="submit" variant="text" sx={{ mt: 10, color: 'grey.light'}} size="small" endIcon={<ArrowForwardOutlinedIcon sx={{color: 'green.main'}} />}>
+                            <Link to='/verification'>
+                                Continuar
+                            </Link>
                         </Button>
+                    </div>
+                </Box>
 
-                    </Box>
-                </main>
-            </div>
+
+
+            </section>
+
+            {/* Imagen grafica */}
+            <section className='flex-1 bg-blue-black hidden md:flex items-center justify-center'> 
+                <img className='px-6 w-full max-w-96' src="../../assets/graphic-first-screen.png" alt="Imagen grafica de la aplicacion" />
+            </section>
         </div>
     )
 }
+
