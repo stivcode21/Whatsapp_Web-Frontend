@@ -9,6 +9,7 @@ import { PalleteColors } from '../colors.js';
 import { AuthLogin } from './auth/AuthLogin.jsx'
 import { OtpVerification } from './auth/OtpVerification.jsx'
 import { AuthCreateProfile } from './auth/AuthCreateProfile.jsx'
+import Principal from './components/Layout/Principal.jsx';
 
 
 // BROWSER ROUTER
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/create-profile",
     element: <AuthCreateProfile />
+  },
+  {
+    path: "/chat",
+    element: <Principal />
   }
 ]);
 

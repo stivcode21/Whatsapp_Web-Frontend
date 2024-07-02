@@ -11,7 +11,7 @@ export default function NoChats({ filter, onClick }) {
       {
         filter === "all" 
           ? "" : 
-          <p className="text-green-main cursor-pointer" onClick={() => onClick("all")}> 
+          <p className="text-green-main cursor-pointer" onClick={onClick}> 
             Ver todos los chats 
           </p>
       }
