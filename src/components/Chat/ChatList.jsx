@@ -7,7 +7,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 const ChatList = ({ list }) => {
   return (
-    <section className="bg-blue-dark flex flex-col justify-between overflow-y-auto">
+    <section className="bg-blue-dark flex flex-col justify-between overflow-y-auto ">
       <List>
         {list.map((chat, index) => (
           <ListItem key={index}>

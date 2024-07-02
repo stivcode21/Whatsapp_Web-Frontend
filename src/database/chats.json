@@ -4,7 +4,7 @@
         "nameUser": "McLovin",
         "LastTime_Message": "2:53p.m",
         "LastContent_Message": "A eso se le llama estrategia",
-        "unread": true,
+        "unread": false,
         "group": false,
         "isActive": true
     },
@@ -31,7 +31,7 @@
         "nameUser": "Mauro",
         "LastTime_Message": "5:00p.m",
         "LastContent_Message": "Puro Full-Stack",
-        "unread": true,
+        "unread": false,
         "group": false,
         "isActive": true
     },
@@ -40,34 +40,34 @@
         "nameUser": "Mauro",
         "LastTime_Message": "5:00p.m",
         "LastContent_Message": "Puro Full-Stack",
-        "unread": true,
+        "unread": false,
         "group": false,
         "isActive": true
     },
     {
         "PhotoUser": "../../assets/avatar-placeholder.jpg",
-        "nameUser": "Mauro",
+        "nameUser": "Magestic",
         "LastTime_Message": "5:00p.m",
         "LastContent_Message": "Puro Full-Stack",
-        "unread": true,
+        "unread": false,
         "group": false,
         "isActive": true
     },
     {
         "PhotoUser": "../../assets/avatar-placeholder.jpg",
-        "nameUser": "Mauro",
+        "nameUser": "Lucas",
         "LastTime_Message": "5:00p.m",
         "LastContent_Message": "Puro Full-Stack",
-        "unread": true,
+        "unread": false,
         "group": false,
         "isActive": true
     },
     {
         "PhotoUser": "../../assets/avatar-placeholder.jpg",
-        "nameUser": "Mauro",
+        "nameUser": "Samir",
         "LastTime_Message": "5:00p.m",
         "LastContent_Message": "Puro Full-Stack",
-        "unread": true,
+        "unread": false,
         "group": false,
         "isActive": true
     }

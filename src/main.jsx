@@ -32,7 +32,7 @@ const router = createBrowserRouter([
     element: <AuthCreateProfile />
   },
   {
-    path: "/chat",
+    path: "/main",
     element: <Principal />
   }
 ]);
