@@ -10,18 +10,18 @@ export default function Chat() {
 
   const formRef = useRef(null)
 
-  const handleChange = (event) => {
+  const handleClick = (event) => {
     let currentFilter
 
     if(event.target.tagName === "INPUT") {
       currentFilter = event.target.value
       event.target.checked = true
-      setFilter(currentFilter)
     }else {
       formRef.current.children[0].firstElementChild.checked = true
       currentFilter = "all"
-      setFilter(currentFilter)
     }
+
+    setFilter(currentFilter)
   }
 
   const visibleList = useMemo(() => {
@@ -32,12 +32,12 @@ export default function Chat() {
   return (
     <section className="grid grid-rows-[auto_1fr] h-screen">
       <ChatHeader>
-        <FilterButtons onChange={handleChange} formRef={formRef}/>
+        <FilterButtons handleClick={handleClick} formRef={formRef}/>
       </ChatHeader>
       {
         visibleList.length > 0
           ? <ChatList list={visibleList}/>
-          : <NoChats filter={filter} onClick={handleChange}/>
+          : <NoChats filter={filter} handleClick={handleClick}/>
       }
     </section>
   );

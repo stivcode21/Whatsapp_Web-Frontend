@@ -4,16 +4,14 @@ const messageMap = {
   group: "No hay grupos"
 }
 
-export default function NoChats({ filter, onClick }) {
+export default function NoChats({ filter, handleClick }) {
   return (
     <section className="bg-blue-dark text-grey-medium text-center flex flex-col justify-center">
       <p>{ messageMap[filter] }</p>
       {
-        filter === "all" 
-          ? "" : 
-          <p className="text-green-main cursor-pointer" onClick={onClick}> 
-            Ver todos los chats 
-          </p>
+        <p className="text-green-main cursor-pointer" onClick={handleClick}> 
+          Ver todos los chats 
+        </p>
       }
     </section>
   )
