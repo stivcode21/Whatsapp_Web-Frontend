@@ -1,13 +1,23 @@
-import { Box, InputAdornment, TextField } from '@mui/material';
+import { Box, IconButton, InputAdornment, TextField } from '@mui/material';
 import { Button } from "@mui/material"
 
 import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export const AuthLogin = () => {
+
+
+    const [showPassword, setShowPassword] = useState(false);
+
+    const handleTogglePasswordVisibility = () => {
+        setShowPassword((prevShowPassword) => !prevShowPassword);
+    };
+    
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -76,7 +86,7 @@ export const AuthLogin = () => {
                         id="password"
                         placeholder="Input password"
                         variant="outlined"
-                        type='password'
+                        type= {showPassword ? 'password' : 'text'}
                         autoComplete="off"
                         required
 
@@ -89,7 +99,16 @@ export const AuthLogin = () => {
 
                             endAdornment: (
                                 <InputAdornment position='end'>
-                                    <VisibilityOutlinedIcon sx={{color:'green.main'}} fontSize='small' /> 
+                                    <IconButton
+                                        onClick={handleTogglePasswordVisibility}
+                                        position="end"
+                                        >
+                                        {showPassword ? (
+                                            <VisibilityOffOutlinedIcon sx={{ color: 'green.main' }} fontSize="small" />
+                                        ) : (
+                                            <VisibilityOutlinedIcon sx={{ color: 'green.main' }} fontSize="small" />
+                                        )}
+                                    </IconButton>
                                 </InputAdornment>
                             )
                         }}
