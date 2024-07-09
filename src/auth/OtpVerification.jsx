@@ -187,29 +187,29 @@ export function OtpVerification() {
         </div>
       
         <div className="px-0 m-14 flex justify-between w-full">
-          <Button
-            variant="text"
-            sx={{ mt: 3, color: "grey.medium" }}
-            size="small"
-            startIcon={<ArrowBackOutlinedIcon color="green" />}
-          >
-            <Link to="/">
-              Regresar
-            </Link>
-          </Button>
+          <Link to="/">
+            <Button
+              variant="text"
+              sx={{ mt: 3, color: "grey.medium" }}
+              size="small"
+              startIcon={<ArrowBackOutlinedIcon color="green" />}
+            >
+                Regresar
+            </Button>
+          </Link>
       
-          <Button
-            type="submit"
-            variant="text"
-            sx={{ mt: 3, color: "grey.light" }}
-            size="small"
-            endIcon={<ArrowForwardOutlinedIcon color="green" />}
-            onClick={handleSubmit}
-          >
-            <Link to='/create-profile'>
-                Continuar
-            </Link>
-          </Button>
+          <Link to='/create-profile'>
+            <Button
+              type="submit"
+              variant="text"
+              sx={{ mt: 3, color: "grey.light" }}
+              size="small"
+              endIcon={<ArrowForwardOutlinedIcon color="green" />}
+              onClick={handleSubmit}
+            >
+                  Continuar
+            </Button>
+          </Link>
         </div>
       </main>
     </div>

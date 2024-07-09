@@ -134,16 +134,17 @@ export const AuthCreateProfile = () => {
 
 
             <div className=" px-0 pt-10 flex justify-between w-full">
-              <Button variant="text" sx={{ mt: 3, color: 'grey.medium' }} size="small" startIcon={<ArrowBackOutlinedIcon color="green" />}>
-                  <Link to='/verification'>
-                    Regresar
-                  </Link>
-              </Button>
-              <Button type="submit" variant="text" sx={{ mt: 3, color: 'grey.light' }} size="small" endIcon={<ArrowForwardOutlinedIcon color="green" />}>
-                  <Link to='/main' >
-                      Continuar
-                  </Link>
-              </Button>
+              <Link to='/verification'>
+                <Button variant="text" sx={{ mt: 3, color: 'grey.medium' }} size="small" startIcon={<ArrowBackOutlinedIcon color="green" />}>
+                      Regresar
+                </Button>
+              </Link>
+
+              <Link to='/main' >
+                <Button type="submit" variant="text" sx={{ mt: 3, color: 'grey.light' }} size="small" endIcon={<ArrowForwardOutlinedIcon color="green" />}>
+                        Continuar
+                </Button>
+              </Link>
             </div>
           </div>
         </Box>

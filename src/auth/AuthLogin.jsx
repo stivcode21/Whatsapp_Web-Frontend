@@ -12,7 +12,7 @@ import { useState } from 'react';
 export const AuthLogin = () => {
 
 
-    const [showPassword, setShowPassword] = useState(false);
+    const [showPassword, setShowPassword] = useState(true);
 
     const handleTogglePasswordVisibility = () => {
         setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -142,11 +142,11 @@ export const AuthLogin = () => {
 
                     {/* BUTTON */}
                     <div className='flex justify-end'>
-                        <Button type="submit" variant="text" sx={{ mt: 10, color: 'grey.light'}} size="small" endIcon={<ArrowForwardOutlinedIcon sx={{color: 'green.main'}} />}>
-                            <Link to='/verification'>
-                                Continuar
-                            </Link>
-                        </Button>
+                        <Link to='/verification'>
+                            <Button type="submit" variant="text" sx={{ mt: 10, color: 'grey.light'}} size="small" endIcon={<ArrowForwardOutlinedIcon sx={{color: 'green.main'}} />}>
+                                    Continuar
+                            </Button>
+                        </Link>
                     </div>
                 </Box>
 
