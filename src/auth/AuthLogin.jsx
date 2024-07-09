@@ -3,6 +3,8 @@ import { Button } from "@mui/material"
 
 import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import { Link } from 'react-router-dom';
 
 export const AuthLogin = () => {
@@ -20,8 +22,10 @@ export const AuthLogin = () => {
                 <Box component='form' onSubmit={handleSubmit} className='text-center w-full max-w-sm mx-auto'>
                     <h1 className='text-grey-light text-2xl'>Crea o ingresa a tu cuenta</h1>
                     <p className='text-sm text-grey-medium mt-2 mb-10'>
-                        Solo necesitamos tu email
+                        Solo necesitamos unos cuantos datos
                     </p>
+                    
+                    <Box className='flex gap-4 flex-col'>
 
 
                     {/* INPUT EMAIL */}
@@ -65,6 +69,57 @@ export const AuthLogin = () => {
                                 }
                             },
                         }} />
+
+                        {/* PASSWORD BUTTON */}
+                        <TextField
+                        
+                        id="password"
+                        placeholder="Input password"
+                        variant="outlined"
+                        type='password'
+                        autoComplete="off"
+                        required
+
+                        InputProps= {{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <LockOutlinedIcon sx={{color: 'green.main'}} fontSize='small' />
+                                </InputAdornment>
+                              ),
+
+                            endAdornment: (
+                                <InputAdornment position='end'>
+                                    <VisibilityOutlinedIcon sx={{color:'green.main'}} fontSize='small' /> 
+                                </InputAdornment>
+                            )
+                        }}
+
+
+                        inputProps={{
+                            sx: {
+                                color: 'grey.light'
+                            }  
+                        }}
+
+                        sx={{
+                            width: '100%',
+                            '& .MuiInputBase-input::placeholder': {
+                                color: 'grey.medium',
+                            },
+                            '& .MuiOutlinedInput-root': {
+                                borderRadius: '16px',
+                                height: '3rem',
+                                '& fieldset': {
+                                    borderColor: 'green.700',
+                                },
+                                '&:hover fieldset , &.Mui-focused fieldset': {
+                                    borderColor: 'green.main',
+                                }
+                            },
+                        }} />
+                    
+                    </Box>
+
 
                     {/* BUTTON */}
                     <div className='flex justify-end'>
