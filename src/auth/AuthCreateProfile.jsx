@@ -5,11 +5,13 @@ import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 import PersonIcon from '@mui/icons-material/Person';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const AuthCreateProfile = () => {
   const inputRef = useRef(null);
   const [image, setImage] = useState('');
+  const navigate = useNavigate();
+
 
   const handleImageClick = () => {   // Relacionamos el input con la imagen
     inputRef.current.click();
@@ -23,7 +25,12 @@ export const AuthCreateProfile = () => {
 
   const handleSubmit = (e) => {   // Verificar envio de furmulario
     e.preventDefault();
-    console.log("cambios guardos")
+    const form = e.currentTarget;
+    if (form.checkValidity()) {
+        navigate('/main');
+    } else {
+        form.reportValidity(); // Muestra mensajes de error de validación
+    }
   };
 
   return (
@@ -52,7 +59,7 @@ export const AuthCreateProfile = () => {
 
             <Box sx={{ display: 'flex', alignItems: 'flex-end', width: '100%'}}>
               <TextField
-                id="TuNombre"
+                id="name"
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -65,6 +72,7 @@ export const AuthCreateProfile = () => {
                 required
                 autoComplete="off"
                 inputProps={{
+                  minLength: 3,
                   sx: {
                     color: 'grey.light',
                   }
@@ -93,7 +101,7 @@ export const AuthCreateProfile = () => {
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'flex-end', width: '100%' }}>
               <TextField
-                id="TuInfo"
+                id="info"
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -101,10 +109,10 @@ export const AuthCreateProfile = () => {
                     </InputAdornment>
                   ),
                 }}
-                placeholder="¡Hola! Estoy usando WhatsApp."
+                placeholder="¡Hey, I am using WhatsApp.!"
                 variant="outlined"
                 autoComplete="off"
-                required
+                
                 inputProps={{
                   sx: {
                     color: 'grey.light'
@@ -140,11 +148,9 @@ export const AuthCreateProfile = () => {
                 </Button>
               </Link>
 
-              <Link to='/main' >
                 <Button type="submit" variant="text" sx={{ mt: 3, color: 'grey.light' }} size="small" endIcon={<ArrowForwardOutlinedIcon color="green" />}>
-                        Continuar
+                    Continuar
                 </Button>
-              </Link>
             </div>
           </div>
         </Box>

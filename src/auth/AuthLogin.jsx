@@ -6,13 +6,15 @@ import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 export const AuthLogin = () => {
 
 
     const [showPassword, setShowPassword] = useState(true);
+    const navigate = useNavigate();
+
 
     const handleTogglePasswordVisibility = () => {
         setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -21,7 +23,12 @@ export const AuthLogin = () => {
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log('Se guardo el email escrito por el usuario')
+        const form = e.currentTarget;
+        if (form.checkValidity()) {
+            navigate('/verification');
+        } else {
+            form.reportValidity(); // Muestra mensajes de error de validación
+        }
     }
     // ipconfig
 
@@ -115,9 +122,11 @@ export const AuthLogin = () => {
 
 
                         inputProps={{
+                            minLength: 8,
                             sx: {
                                 color: 'grey.light'
-                            }  
+                            }
+
                         }}
 
                         sx={{
@@ -142,11 +151,9 @@ export const AuthLogin = () => {
 
                     {/* BUTTON */}
                     <div className='flex justify-end'>
-                        <Link to='/verification'>
-                            <Button type="submit" variant="text" sx={{ mt: 10, color: 'grey.light'}} size="small" endIcon={<ArrowForwardOutlinedIcon sx={{color: 'green.main'}} />}>
-                                    Continuar
-                            </Button>
-                        </Link>
+                        <Button type="submit" variant="text" sx={{ mt: 10, color: 'grey.light'}} size="small" endIcon={<ArrowForwardOutlinedIcon sx={{color: 'green.main'}} />}>
+                                Continuar
+                        </Button>
                     </div>
                 </Box>
 
