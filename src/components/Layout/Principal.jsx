@@ -1,4 +1,4 @@
-import Chat from "../Chat/Chat";
+import Chat from "../Chats/Chat";
 
 const Principal = () => {
   return (
