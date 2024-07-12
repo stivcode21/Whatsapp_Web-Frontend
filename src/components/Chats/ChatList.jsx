@@ -5,13 +5,13 @@ import Avatar from "@mui/material/Avatar";
 import { Box } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
-const ChatList = ({ list }) => {
+const ChatList = ({ list, onSelect }) => {
   return (
-    <section className="bg-blue-dark flex flex-col justify-between overflow-y-auto ">
+    <section className="bg-blue-black flex flex-col justify-between overflow-y-auto ">
       <List>
         {list.map((chat, index) => (
-          <ListItem key={index}>
-            <div className="flex w-full gap-2 relative py-2">
+          <ListItem key={index} className="hover:bg-blue-dark" onClick={() => onSelect(index)}>
+            <div className="flex w-full gap-2 relative py-2 cursor-pointer">
               <Box className="relative flex items-center">
                 <Avatar src={chat.PhotoUser} />
                 <div className={`${chat.isActive ? "bg-green-main" : "bg-red-main"} w-3 h-3 absolute right-0.5 bottom-0.5 rounded-full border-2 border-white`}></div>

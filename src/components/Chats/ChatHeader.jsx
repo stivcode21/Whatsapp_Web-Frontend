@@ -5,7 +5,7 @@ import { Box, Divider } from "@mui/material";
 
 const ChatHeader = ({ children }) => {
   return (
-    <section className="bg-blue-dark">
+    <section className="bg-blue-black">
       <Box className="flex items-center justify-between px-4 h-14">
         <h1 className="text-white font-semibold text-xl">WhatsApp</h1>
         <div className="flex gap-5">

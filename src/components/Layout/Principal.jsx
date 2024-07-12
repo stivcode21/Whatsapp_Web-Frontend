@@ -1,9 +1,9 @@
-import Chat from "../Chats/Chat";
+import Chats from "../Chats/Chats";
 
 const Principal = () => {
   return (
     <>
-      <Chat />
+      <Chats />
     </>
   );
 };

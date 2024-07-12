@@ -6,7 +6,7 @@ const messageMap = {
 
 export default function NoChats({ filter, handleClick }) {
   return (
-    <section className="bg-blue-dark text-grey-medium text-center flex flex-col justify-center">
+    <section className="bg-blue-black text-grey-medium text-center flex flex-col justify-center">
       <p>{ messageMap[filter] }</p>
       {
         <p className="text-green-main cursor-pointer" onClick={handleClick}> 
