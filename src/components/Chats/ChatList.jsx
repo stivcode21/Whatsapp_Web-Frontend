@@ -13,7 +13,7 @@ const ChatList = ({ list, onSelect }) => {
           <ListItem key={index} className="hover:bg-blue-dark" onClick={() => onSelect(index)}>
             <div className="flex w-full gap-2 relative py-2 cursor-pointer">
               <Box className="relative flex items-center">
-                <Avatar src={chat.PhotoUser} />
+                <Avatar src={chat.photo} />
                 <div className={`${chat.isActive ? "bg-green-main" : "bg-red-main"} w-3 h-3 absolute right-0.5 bottom-0.5 rounded-full border-2 border-white`}></div>
               </Box>
               <div>

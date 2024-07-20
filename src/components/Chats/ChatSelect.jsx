@@ -1,7 +1,7 @@
 import { Avatar } from "@mui/material";
 import { Videocam, Search, MoreVert, EmojiEmotionsOutlined, Add, KeyboardVoice } from "@mui/icons-material";
 import dataMessages from "../../database/messages.json"
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Button from "../Common/Button";
 import EmojiPicker from "./EmojiPicker";
 import FooterPriv from "./FooterPriv";
@@ -26,7 +26,7 @@ function ChatMessage({ message }) {
 
 function ChatSelectHeader({ user }) {
   return (
-    <header className="bg-grey-main py-[10px] px-[16px] flex items-center">
+    <header className="bg-blue-dark py-[10px] px-[16px] flex items-center">
       <div className="pr-[15px]">
         <Avatar src={user.photo} />
       </div>
@@ -62,11 +62,23 @@ function formatTime() {
 export default function ChatSelect({ user }) {
   const [messages, setMessages] = useState(dataMessages)
   const [showPicker, setShowPicker] = useState(false)
-  const [text, setText] = useState("")
+
+  const inputRef = useRef(null)
 
   function handleSelect(e) {
-    const newText = text + e.native
-    setText(newText)
+    const start = inputRef.current.selectionStart
+    const end = inputRef.current.selectionEnd
+
+    const emoji = e.native
+    const text = inputRef.current.value
+
+    const before = text.slice(0, start)
+    const after = text.slice(end)
+
+    inputRef.current.value = before + emoji + after
+    inputRef.current.selectionStart = before.length + emoji.length
+    inputRef.current.selectionEnd = before.length + emoji.length
+    inputRef.current.focus()
   }
 
   function handleSubmit(event) {
@@ -84,13 +96,13 @@ export default function ChatSelect({ user }) {
 
     setMessages(newMessages)
     setShowPicker(false)
-    setText("")
+    inputRef.current.value = ""
   }
 
   if (user === undefined) {
     return (
-      <section className="bg-blue-black h-screen flex flex-col justify-center items-center text-white">
-        <img src="../../assets/whatsapp-bg.png" alt="Welcome to WhatsApp"></img>
+      <section className="bg-blue-dark h-screen flex flex-col justify-center items-center text-white">
+        <img src="../../assets/whatsapp-bg.png" alt="Welcome to WhatsApp" className="w-[400px]"></img>
         <h1 className="text-3xl mt-[20px]"> WhatsApp Web</h1>
         <p className="text-grey-medium mb-20 mt-[5px]">
           Envía y recibe mensajes sin necesidad de tener tu teléfono conectado. <br />
@@ -102,7 +114,7 @@ export default function ChatSelect({ user }) {
   }
 
   return (
-    <section className="bg-blue-dark h-screen flex flex-col relative">
+    <section className="bg-blue-black h-screen flex flex-col relative">
       <ChatSelectHeader user={user} />
       <main className="flex flex-col flex-1 overflow-y-auto px-[60px] py-[10px] gap-1">
         {
@@ -112,10 +124,11 @@ export default function ChatSelect({ user }) {
       {
         showPicker ? <EmojiPicker onSelect={handleSelect} /> : ""
       }
-      <footer className="bg-grey-main py-[5px] px-[16px] flex items-center gap-4">
+      <footer className="bg-blue-dark py-[5px] px-[16px] flex items-center gap-4">
         <div className="text-grey-light flex gap-4">
           <Button onClick={() => {
             setShowPicker(!showPicker)
+            inputRef.current.focus()
           }}>
             <EmojiEmotionsOutlined className="cursor-pointer" />
           </Button>
@@ -123,11 +136,10 @@ export default function ChatSelect({ user }) {
         </div>
         <form className="flex-1 mx-[8px] my-[5px]" onSubmit={handleSubmit}>
           <input
-            value={text}
-            onChange={(e) => setText(e.target.value)}
+            ref={inputRef}
             type="text"
             name="message"
-            className="w-full py-[9px] px-[12px] bg-grey-medium rounded-lg outline-none text-white"
+            className="w-full py-[9px] px-[12px] bg-grey-main rounded-lg outline-none text-white"
             placeholder="Escribe un mensaje"
             autoComplete="off"
           />

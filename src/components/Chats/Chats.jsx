@@ -3,12 +3,10 @@ import ChatHeader from "./ChatHeader";
 import FilterButtons from "./FilterButtons";
 import data from "../../database/chats.json";
 import NoChats from "./NoChats";
-import ChatSelect from "./ChatSelect"
 import { useState, useMemo, useRef } from "react";
 
-export default function Chat() {
+export default function Chats({ onSelect }) {
   const [filter, setFilter] = useState("all")
-  const [selectChat, setSelectChat] = useState(undefined)
 
   const formRef = useRef(null)
 
@@ -32,20 +30,15 @@ export default function Chat() {
   }, [filter])
 
   return (
-    <section className="flex overflow-hidden">
-      <div className="w-2/5 h-screen flex flex-col border-r-2 border-grey-medium">
+      <div className="w-4/12 h-screen flex flex-col border-r-[1px] border-grey-main">
         <ChatHeader>
           <FilterButtons handleClick={handleClick} formRef={formRef} />
         </ChatHeader>
         {
           visibleList.length > 0
-            ? <ChatList list={visibleList} onSelect={setSelectChat} />
+            ? <ChatList list={visibleList} onSelect={onSelect} />
             : <NoChats filter={filter} handleClick={handleClick} />
         }
       </div>
-      <div className="h-full w-3/5">
-        <ChatSelect user={data[selectChat]} />
-      </div>
-    </section>
   );
 }

@@ -5,7 +5,7 @@ export default function EmojiPicker({ onSelect }) {
 
     return (
         <div className="absolute bottom-[65px] left-[10px]">
-            <Picker data={data} onEmojiSelect={onSelect} />
+            <Picker data={data} onEmojiSelect={onSelect} className="bg-blue-dark"/>
         </div>
     )
 }

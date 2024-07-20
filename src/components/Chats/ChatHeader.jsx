@@ -1,7 +1,7 @@
 import PhotoCameraOutlinedIcon from '@mui/icons-material/PhotoCameraOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import { Box, Divider } from "@mui/material";
+import { Box } from "@mui/material";
 
 const ChatHeader = ({ children }) => {
   return (
