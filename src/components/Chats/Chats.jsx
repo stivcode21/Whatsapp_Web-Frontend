@@ -8,19 +8,17 @@ import { useState, useMemo, useRef } from "react";
 
 export default function Chat() {
   const [filter, setFilter] = useState("all")
-  const [selectChat, setSelectChat] = useState()
-
-  console.log(selectChat)
+  const [selectChat, setSelectChat] = useState(undefined)
 
   const formRef = useRef(null)
 
   const handleClick = (event) => {
     let currentFilter
 
-    if(event.target.tagName === "INPUT") {
+    if (event.target.tagName === "INPUT") {
       currentFilter = event.target.value
       event.target.checked = true
-    }else {
+    } else {
       formRef.current.children[0].firstElementChild.checked = true
       currentFilter = "all"
     }
@@ -33,18 +31,21 @@ export default function Chat() {
     return data.filter(chat => chat[filter] === true)
   }, [filter])
 
-  if(selectChat !== undefined) return <ChatSelect user={data[selectChat]}/>
-
   return (
-    <section className="grid grid-rows-[auto_1fr] h-screen">
-      <ChatHeader>
-        <FilterButtons handleClick={handleClick} formRef={formRef}/>
-      </ChatHeader>
-      {
-        visibleList.length > 0
-          ? <ChatList list={visibleList} onSelect={setSelectChat}/>
-          : <NoChats filter={filter} handleClick={handleClick}/>
-      }
+    <section className="flex overflow-hidden">
+      <div className="w-2/5 h-screen flex flex-col border-r-2 border-grey-medium">
+        <ChatHeader>
+          <FilterButtons handleClick={handleClick} formRef={formRef} />
+        </ChatHeader>
+        {
+          visibleList.length > 0
+            ? <ChatList list={visibleList} onSelect={setSelectChat} />
+            : <NoChats filter={filter} handleClick={handleClick} />
+        }
+      </div>
+      <div className="h-full w-3/5">
+        <ChatSelect user={data[selectChat]} />
+      </div>
     </section>
   );
 }

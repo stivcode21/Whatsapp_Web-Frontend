@@ -5,19 +5,18 @@ import { Box, Divider } from "@mui/material";
 
 const ChatHeader = ({ children }) => {
   return (
-    <section className="bg-blue-black">
+    <section className="bg-blue-black border-grey-medium">
       <Box className="flex items-center justify-between px-4 h-14">
         <h1 className="text-white font-semibold text-xl">WhatsApp</h1>
         <div className="flex gap-5">
-          <PhotoCameraOutlinedIcon sx={{color: "grey.medium"}} size={"1.25rem"} />
-          <SearchOutlinedIcon sx={{color: "grey.medium"}} size={"1.25rem"} />
+          <PhotoCameraOutlinedIcon sx={{ color: "grey.medium" }} size={"1.25rem"} />
+          <SearchOutlinedIcon sx={{ color: "grey.medium" }} size={"1.25rem"} />
           <MoreVertOutlinedIcon
-            sx={{color: "grey.medium"}}
+            sx={{ color: "grey.medium" }}
             size={"1.25rem"}
           />
         </div>
       </Box>
-      <Divider className="bg-grey-main" />
       {children}
     </section>
   );

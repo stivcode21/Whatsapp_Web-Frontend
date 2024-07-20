@@ -1,6 +1,6 @@
 [
     {
-        "PhotoUser": "../../assets/McLovin.jpg",
+        "photo": "../../assets/McLovin.jpg",
         "nameUser": "McLovin",
         "LastTime_Message": "2:53p.m",
         "LastContent_Message": "A eso se le llama estrategia",
@@ -9,7 +9,7 @@
         "isActive": true
     },
     {
-        "PhotoUser": "../../assets/avatar-placeholder.jpg",
+        "photo": "../../assets/avatar-placeholder.jpg",
         "nameUser": "Gael",
         "LastTime_Message": "8:00p.m",
         "LastContent_Message": "Ya quedó el filtradoo!",
@@ -18,7 +18,7 @@
         "isActive": false
     },
     {
-        "PhotoUser": "../../assets/avatar-placeholder.jpg",
+        "photo": "../../assets/avatar-placeholder.jpg",
         "nameUser": "Stiven",
         "LastTime_Message": "1:00a.m",
         "LastContent_Message": "MELOOOOOOOOO",
@@ -27,7 +27,7 @@
         "isActive": false
     },
     {
-        "PhotoUser": "../../assets/avatar-placeholder.jpg",
+        "photo": "../../assets/avatar-placeholder.jpg",
         "nameUser": "Mauro",
         "LastTime_Message": "5:00p.m",
         "LastContent_Message": "Puro Full-Stack",
@@ -36,7 +36,7 @@
         "isActive": true
     },
     {
-        "PhotoUser": "../../assets/avatar-placeholder.jpg",
+        "photo": "../../assets/avatar-placeholder.jpg",
         "nameUser": "Mauro",
         "LastTime_Message": "5:00p.m",
         "LastContent_Message": "Puro Full-Stack",
@@ -45,7 +45,7 @@
         "isActive": true
     },
     {
-        "PhotoUser": "../../assets/avatar-placeholder.jpg",
+        "photo": "../../assets/avatar-placeholder.jpg",
         "nameUser": "Magestic",
         "LastTime_Message": "5:00p.m",
         "LastContent_Message": "Puro Full-Stack",
@@ -54,7 +54,7 @@
         "isActive": true
     },
     {
-        "PhotoUser": "../../assets/avatar-placeholder.jpg",
+        "photo": "../../assets/avatar-placeholder.jpg",
         "nameUser": "Lucasz",
         "LastTime_Message": "5:00p.m",
         "LastContent_Message": "Puro",
@@ -63,7 +63,7 @@
         "isActive": true
     },
     {
-        "PhotoUser": "../../assets/avatar-placeholder.jpg",
+        "photo": "../../assets/avatar-placeholder.jpg",
         "nameUser": "Samir",
         "LastTime_Message": "5:00p.m",
         "LastContent_Message": "Puro Full-Stack",
