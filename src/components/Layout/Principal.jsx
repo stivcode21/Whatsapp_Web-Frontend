@@ -1,5 +1,5 @@
 import Chats from "../Chats/Chats";
-import ChatMenu from "../Chats/ChatMenu";
+import Menu from "../Menu/Menu";
 import ChatSelect from "../Chats/ChatSelect"
 import Communities from "../Communities/Communities";
 import Settings from "../Settings/Settings";
@@ -30,7 +30,7 @@ export default function Principal() {
   return (
     <>
      <section className="flex overflow-hidden">
-      <ChatMenu onSelect={setSelecMenu}/>
+      <Menu onSelect={setSelecMenu}/>
       <div className="w-4/12 h-screen flex flex-col border-r-[1px] border-grey-main bg-blue-black">
       {
         currentDisplayed()

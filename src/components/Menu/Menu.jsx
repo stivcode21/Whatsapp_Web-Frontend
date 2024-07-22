@@ -1,8 +1,8 @@
 import { ChatOutlined, Groups, SettingsOutlined } from "@mui/icons-material"
 import { Avatar } from "@mui/material"
-import { SelectMenu } from "./Select"
+import { SelectMenu } from "../Chats/Select"
 
-export default function ChatMenu({ onSelect }) {
+export default function Menu({ onSelect }) {
 
   const handleClick = (event) => {
     if (event.target.tagName !== "INPUT") return
