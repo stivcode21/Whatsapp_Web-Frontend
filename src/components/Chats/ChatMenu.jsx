@@ -1,26 +1,36 @@
 import { ChatOutlined, Groups, SettingsOutlined } from "@mui/icons-material"
-import Button from "../Common/Button"
 import { Avatar } from "@mui/material"
+import { SelectMenu } from "./Select"
 
-export default function ChatMenu() {
+export default function ChatMenu({ onSelect }) {
+
+  const handleClick = (event) => {
+    if (event.target.tagName !== "INPUT") return
+    event.target.checked = true
+    onSelect(event.target.value)
+  }
+
   return(
-    <div className="bg-blue-dark w-[60px] border-r-[1px] border-grey-main flex flex-col justify-between  items-center py-6 text-grey-light">
-      <div className="flex flex-col gap-4">
-        <Button>
+    <form 
+      className="bg-blue-dark w-[60px] border-r-[1px] border-grey-main flex flex-col justify-between  items-center py-6 text-grey-light"
+      onClick={handleClick}
+    >
+      <div className="flex flex-col gap-2 items-center">
+        <SelectMenu value="chats"  name="menu"isDefault={true}>
           <ChatOutlined />
-        </Button>
-        <Button>
+        </SelectMenu>
+        <SelectMenu value="communities" name="menu">
           <Groups />
-        </Button>
+        </SelectMenu>
       </div>
-      <div className="flex flex-col gap-4">
-        <Button>
+      <div className="flex flex-col gap-2 items-center">
+        <SelectMenu value="settings" name="menu">
           <SettingsOutlined />
-        </Button>
-        <Button>
-          <Avatar />
-        </Button>
+        </SelectMenu>
+        <SelectMenu value="profile" name="menu">
+          <Avatar sx={{ width: 30, height: 30 }}/>
+        </SelectMenu>
       </div>
-    </div>
+    </form>
   )
 }

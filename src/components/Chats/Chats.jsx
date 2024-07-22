@@ -30,7 +30,7 @@ export default function Chats({ onSelect }) {
   }, [filter])
 
   return (
-      <div className="w-4/12 h-screen flex flex-col border-r-[1px] border-grey-main">
+      <>
         <ChatHeader>
           <FilterButtons handleClick={handleClick} formRef={formRef} />
         </ChatHeader>
@@ -39,6 +39,6 @@ export default function Chats({ onSelect }) {
             ? <ChatList list={visibleList} onSelect={onSelect} />
             : <NoChats filter={filter} handleClick={handleClick} />
         }
-      </div>
+      </>
   );
 }
