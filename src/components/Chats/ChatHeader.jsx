@@ -7,14 +7,11 @@ const ChatHeader = ({ children }) => {
   return (
     <section className="bg-blue-black border-grey-medium">
       <Box className="flex items-center justify-between px-4 h-14">
-        <h1 className="text-white font-semibold text-xl">Chats</h1>
-        <div className="flex gap-5">
-          <PhotoCameraOutlinedIcon sx={{ color: "grey.medium" }} size={"1.25rem"} />
-          <SearchOutlinedIcon sx={{ color: "grey.medium" }} size={"1.25rem"} />
-          <MoreVertOutlinedIcon
-            sx={{ color: "grey.medium" }}
-            size={"1.25rem"}
-          />
+        <h1 className="text-white font-semibold text-2xl">Chats</h1>
+        <div className="flex gap-5 text-grey-medium">
+          <PhotoCameraOutlinedIcon size={"1.25rem"} />
+          <SearchOutlinedIcon size={"1.25rem"} />
+          <MoreVertOutlinedIcon size={"1.25rem"} />
         </div>
       </Box>
       {children}
