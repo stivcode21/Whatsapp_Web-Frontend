@@ -6,7 +6,7 @@ import { Box } from "@mui/material";
 const ChatHeader = ({ children }) => {
   return (
     <section className="bg-blue-black border-grey-medium">
-      <Box className="flex items-center justify-between px-4 h-14">
+      <Box className="flex items-center justify-between pl-[25px] pr-[20px] h-[60px]">
         <h1 className="text-white font-semibold text-2xl">Chats</h1>
         <div className="flex gap-5 text-grey-medium">
           <PhotoCameraOutlinedIcon size={"1.25rem"} />

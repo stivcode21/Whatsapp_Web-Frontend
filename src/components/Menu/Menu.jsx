@@ -12,7 +12,7 @@ export default function Menu({ onSelect }) {
 
   return(
     <form 
-      className="bg-blue-dark w-[60px] border-r-[1px] border-grey-main flex flex-col justify-between  items-center py-6 text-grey-light"
+      className="bg-blue-dark w-[60px] border-r-[1px] px-[12px] border-grey-main flex flex-col justify-between  items-center py-6 text-grey-light"
       onClick={handleClick}
     >
       <div className="flex flex-col gap-2 items-center">
@@ -28,7 +28,7 @@ export default function Menu({ onSelect }) {
           <SettingsOutlined />
         </SelectMenu>
         <SelectMenu value="profile" name="menu">
-          <Avatar sx={{ width: 30, height: 30 }}/>
+          <Avatar sx={{ width: 32, height: 32 }} src="../../assets/McLovin.jpg"/>
         </SelectMenu>
       </div>
     </form>
