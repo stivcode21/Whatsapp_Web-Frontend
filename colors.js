@@ -31,7 +31,7 @@ export const PalleteColors = {
     },
     blue: {
         main: colors.blue,
-        gray: colors.blueGrey,
+        grey: colors.blueGrey,
         dark: colors.blueDark,
         black: colors.blueBlack,
 

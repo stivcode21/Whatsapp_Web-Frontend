@@ -3,17 +3,17 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Avatar from "@mui/material/Avatar";
 import { Box } from '@mui/material';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import FooterPriv from "./FooterPriv"
 
-const ChatList = ({ list }) => {
+const ChatList = ({ list, onSelect }) => {
   return (
-    <section className="bg-blue-dark flex flex-col justify-between overflow-y-auto ">
+    <section className="bg-blue-black flex flex-col flex-1 justify-between overflow-y-auto">
       <List>
         {list.map((chat, index) => (
-          <ListItem key={index}>
-            <div className="flex w-full gap-2 relative py-2">
+          <ListItem key={index} className="hover:bg-blue-dark" onClick={() => onSelect(index)}>
+            <div className="flex w-full gap-2 relative py-2 cursor-pointer">
               <Box className="relative flex items-center">
-                <Avatar src={chat.PhotoUser} />
+                <Avatar src={chat.photo} />
                 <div className={`${chat.isActive ? "bg-green-main" : "bg-red-main"} w-3 h-3 absolute right-0.5 bottom-0.5 rounded-full border-2 border-white`}></div>
               </Box>
               <div>
@@ -34,15 +34,7 @@ const ChatList = ({ list }) => {
           </ListItem>
         ))}
       </List>
-      <footer className="flex justify-center items-center pb-2 gap-1">
-        <LockOutlinedIcon sx={{ color: "grey.medium", fontSize: "12px"}}/>
-        <p className="text-grey-medium text-center text-xs">
-          Tus mensajes personales están{" "}
-          <span className="text-green-main">
-            cifrados de extremo a extremo.
-          </span>
-        </p>
-      </footer>
+      <FooterPriv />
     </section>
   );
 };

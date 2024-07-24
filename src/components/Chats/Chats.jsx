@@ -5,7 +5,7 @@ import data from "../../database/chats.json";
 import NoChats from "./NoChats";
 import { useState, useMemo, useRef } from "react";
 
-export default function Chat() {
+export default function Chats({ onSelect }) {
   const [filter, setFilter] = useState("all")
 
   const formRef = useRef(null)
@@ -13,10 +13,10 @@ export default function Chat() {
   const handleClick = (event) => {
     let currentFilter
 
-    if(event.target.tagName === "INPUT") {
+    if (event.target.tagName === "INPUT") {
       currentFilter = event.target.value
       event.target.checked = true
-    }else {
+    } else {
       formRef.current.children[0].firstElementChild.checked = true
       currentFilter = "all"
     }
@@ -30,15 +30,15 @@ export default function Chat() {
   }, [filter])
 
   return (
-    <section className="grid grid-rows-[auto_1fr] h-screen">
-      <ChatHeader>
-        <FilterButtons handleClick={handleClick} formRef={formRef}/>
-      </ChatHeader>
-      {
-        visibleList.length > 0
-          ? <ChatList list={visibleList}/>
-          : <NoChats filter={filter} handleClick={handleClick}/>
-      }
-    </section>
+      <>
+        <ChatHeader>
+          <FilterButtons handleClick={handleClick} formRef={formRef} />
+        </ChatHeader>
+        {
+          visibleList.length > 0
+            ? <ChatList list={visibleList} onSelect={onSelect} />
+            : <NoChats filter={filter} handleClick={handleClick} />
+        }
+      </>
   );
 }
