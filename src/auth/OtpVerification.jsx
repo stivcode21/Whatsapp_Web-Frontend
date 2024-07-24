@@ -1,10 +1,6 @@
 import * as React from 'react';
-import { Button } from '@mui/material';
-import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
-import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 import { Box } from '@mui/system';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 function OTPInput({ separator, length, value, onChange }) {
   const inputRefs = React.useRef(new Array(length).fill(null));
@@ -163,8 +159,15 @@ export function OtpVerification() {
 
   const handleSubmit = () => {
     // Aquí puedes manejar la lógica de envío del formulario o cualquier otra acción necesaria
-    console.log("OTP entered:", otp); // Puedes usar 'otp' para enviar el valor del OTP ingresado
+      alert('Todos los campos han sido llenos')
   };
+
+   // Efecto para manejar el cambio en el OTP
+   React.useEffect(() => {
+    if (otp.length === 6) {
+      handleSubmit(); // Llama a handleSubmit cuando todos los campos estén llenos
+    }
+  }, [otp]);
 
   return (
     <div className='bg-blue-dark'>
@@ -186,31 +189,7 @@ export function OtpVerification() {
           <button className="text-green-main uppercase">Reenviar código</button>
         </div>
       
-        <div className="px-0 m-14 flex justify-between w-full">
-          <Link to="/">
-            <Button
-              variant="text"
-              sx={{ mt: 3, color: "grey.medium" }}
-              size="small"
-              startIcon={<ArrowBackOutlinedIcon color="green" />}
-            >
-                Regresar
-            </Button>
-          </Link>
-      
-          <Link to='/create-profile'>
-            <Button
-              type="submit"
-              variant="text"
-              sx={{ mt: 3, color: "grey.light" }}
-              size="small"
-              endIcon={<ArrowForwardOutlinedIcon color="green" />}
-              onClick={handleSubmit}
-            >
-                  Continuar
-            </Button>
-          </Link>
-        </div>
+        
       </main>
     </div>
   );
