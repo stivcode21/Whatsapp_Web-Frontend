@@ -1,4 +1,5 @@
 import { Avatar } from "@mui/material";
+
 import { Videocam, Search, MoreVert, EmojiEmotionsOutlined, Add, KeyboardVoice } from "@mui/icons-material";
 import dataMessages from "../../database/messages.json"
 import { useRef, useState } from "react";
@@ -10,10 +11,10 @@ function ChatMessage({ message }) {
   return (
     <div className={`${message.wasSendByMe ? "justify-end" : ""} flex text-white`}>
       <div className={
-        `${message.wasSendByMe ? "bg-green-main" : "bg-grey-main"} 
-        p-[2px] px-[8px] rounded-lg gap-2 max-w-[500px]`
+        `${message.wasSendByMe ? "bg-green-500" : "bg-grey-main"} 
+        py-2 px-4 rounded-lg gap-2 max-w-[500px]`
       }>
-        <p>
+        <p className="break-words text-sm">
           {message.content}
           <span className="text-xs ml-[10px]">
             {message.time}
@@ -84,19 +85,23 @@ export default function ChatSelect({ user }) {
   function handleSubmit(event) {
     event.preventDefault()
 
-    const { message } = Object.fromEntries(new FormData(event.target))
+    let { message } = Object.fromEntries(new FormData(event.target))
+    message = message.trim()
 
-    let newMessages = [...messages, {
-      "id": self.crypto.randomUUID(),
-      "content": message,
-      "time": formatTime(),
-      "wasSendByMe": true,
-      "isRead": false
-    }]
+    if (message.length > 0) {
+      let newMessages = [...messages, {
+        "id": self.crypto.randomUUID(),
+        "content": message,
+        "time": formatTime(),
+        "wasSendByMe": true,
+        "isRead": false
+      }]
+  
+      setMessages(newMessages)
+      setShowPicker(false)
+      inputRef.current.value = ""
+    }
 
-    setMessages(newMessages)
-    setShowPicker(false)
-    inputRef.current.value = ""
   }
 
   if (user === undefined) {
@@ -124,7 +129,7 @@ export default function ChatSelect({ user }) {
       {
         showPicker ? <EmojiPicker onSelect={handleSelect} /> : ""
       }
-      <footer className="bg-blue-dark py-[5px] px-[16px] flex items-center gap-4">
+      <footer className="bg-[#202c33] py-3 px-8 flex items-center gap-4">
         <div className="text-grey-light flex gap-4">
           <Button onClick={() => {
             setShowPicker(!showPicker)
@@ -145,7 +150,7 @@ export default function ChatSelect({ user }) {
           />
         </form>
         <div className="text-grey-light">
-          <KeyboardVoice />
+          <KeyboardVoice className="cursor-pointer" />
         </div>
       </footer>
     </section>
