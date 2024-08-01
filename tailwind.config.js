@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import { PalleteColors } from './colors'
+import { PalleteColors } from "./colors.js"
 
 export default {
   content: [

@@ -1,59 +1,22 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './styles/index.css'
-import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { AuthProvider } from './hooks/useAuth.jsx'
 
-import { PalleteColors } from '../colors.js';
+import App from './App.jsx'
+import  "./styles/index.css"
 
-// PAGES
-import { AuthLogin } from './auth/AuthLogin.jsx'
-import { OtpVerification } from './auth/OtpVerification.jsx'
-import { AuthCreateProfile } from './auth/AuthCreateProfile.jsx'
-import Principal from './components/Layout/Principal.jsx';
+import { PalleteColors } from "../colors.js"
 
-
-// BROWSER ROUTER
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <AuthLogin />,
-  },
-  {
-    path: "/verification",
-    element: <OtpVerification />
-  },
-  {
-    path: "/create-profile",
-    element: <AuthCreateProfile />
-  },
-  {
-    path: "/main",
-    element: <Principal />
-  }
-]);
-
-
-//import fuente roboto
-import "@fontsource/roboto/300.css";
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
-import "@fontsource/roboto/700.css";
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material'
 
 const theme = createTheme({
   palette: PalleteColors
-
-});
+})
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <CssBaseline />
-    <ThemeProvider theme={theme}>
-      <RouterProvider router={router} />
-    </ThemeProvider>
-  </React.StrictMode>,
+  <ThemeProvider theme={theme}>
+    <AuthProvider>
+      <CssBaseline />
+      <App />
+    </AuthProvider>
+  </ThemeProvider>
 )

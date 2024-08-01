@@ -9,7 +9,7 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-export const AuthLogin = () => {
+export default function Login() {
 
 
     const [showPassword, setShowPassword] = useState(true);
