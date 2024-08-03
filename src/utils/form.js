@@ -9,7 +9,6 @@ export function validateForm(data, formElement, inputTypes) {
   let i = 0
 
   for(let key in data) {
-    console.log(i)
     const result = validateType(inputTypes[i], data[key])
 
     if(result !== null) {
@@ -46,8 +45,8 @@ function validatePassword(password) {
   return null
 }
 
-function validateEmail(email) {
-  return setMessage("xd")
+function validateEmail() {
+  return null
 }
 
 /*function validateObject(object) {

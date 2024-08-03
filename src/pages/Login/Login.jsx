@@ -9,14 +9,14 @@ export default function Login() {
     const { handleSubmit } = useForm(["email", "password"])
 
     function handleClick() {
-        setShowPassword(!showPassword)
+      setShowPassword(!showPassword)
     }
     
     return (
         <div className="bg-blue-dark h-screen flex">
             <section className='flex flex-1 items-center justify-center'>
                 <form
-                    onSubmit={handleSubmit}
+                    onSubmit={(event) => handleSubmit(event, "user", "register", "POST")}
                     className="flex flex-col text-center w-full max-w-sm"
                 >
                     <h1 className='text-grey-light text-2xl text-'>

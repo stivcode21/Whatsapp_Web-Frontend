@@ -3,9 +3,7 @@ import { useAuth } from "../../hooks/useAuth"
 
 
 export default function Auth() {
-  const { isAuthenticated, isLoading } = useAuth()
-
-  if(isLoading) return <h1> Cargando </h1>
+  const { isAuthenticated } = useAuth()
 
   if(isAuthenticated) return <Outlet />
 

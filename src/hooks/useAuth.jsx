@@ -5,8 +5,7 @@ import Cookies from "js-cookie"*/
 const AuthContext = createContext()
 
 export function AuthProvider({ children }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const [isLoading] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
   const [user, setUser] = useState(null)
 
   /*useEffect(() => {
@@ -36,22 +35,16 @@ export function AuthProvider({ children }) {
     setIsLoading(false)
   }, [])*/
 
-  function loadUser(logedUser) {
-    setUser(logedUser)
-    setIsAuthenticated(true)
-  }
-
-  function setUserData(data) {
+  function logedUser(data) {
     setUser(data)
+    setIsAuthenticated(true)
   }
 
   return (
     <AuthContext.Provider value={{
-    user,
-    isAuthenticated,
-    isLoading,
-    setUserData,
-    loadUser
+      user,
+      isAuthenticated,
+      logedUser
     }}>
       { children }
     </AuthContext.Provider>

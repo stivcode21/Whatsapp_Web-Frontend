@@ -14,8 +14,8 @@ const theme = createTheme({
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <ThemeProvider theme={theme}>
+    <CssBaseline />
     <AuthProvider>
-      <CssBaseline />
       <App />
     </AuthProvider>
   </ThemeProvider>

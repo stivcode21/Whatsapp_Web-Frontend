@@ -7,7 +7,7 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import { Link, useNavigate } from "react-router-dom";
 
-export const AuthCreateProfile = () => {
+export default function CreateProfile() {
   const inputRef = useRef(null);
   const [image, setImage] = useState('');
   const navigate = useNavigate();
@@ -157,4 +157,4 @@ export const AuthCreateProfile = () => {
       </div>
     </>
   );
-};
+}
