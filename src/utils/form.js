@@ -26,8 +26,10 @@ export function validateForm(data, formElement, inputTypes) {
 }
 
 const MAP_FUNCTIONS = {
+  "text": validateString,
   "email": validateEmail,
-  "password": validatePassword
+  "password": validatePassword,
+  "image": validateObject
 }
 
 function validateType(type, value) {
@@ -35,10 +37,10 @@ function validateType(type, value) {
   return MAP_FUNCTIONS[type](value)
 }
 
-/*function validateString(string) {
+function validateString(string) {
   if(string.length <= 0) return false
-  return true
-}*/
+  return null
+}
 
 function validatePassword(password) {
   if(password.length <= 8) return setMessage("La contraseña debe ser de mínimo 8 caracteres")
@@ -49,12 +51,12 @@ function validateEmail() {
   return null
 }
 
-/*function validateObject(object) {
+function validateObject(object) {
   if(object instanceof File) {
-    if(object.size === 0) return false
+    if(object.size === 0) return setMessage("Imagen requerida")
   }
-  return true
-}*/
+  return null
+}
 
 function setMessage(message) {
   return {

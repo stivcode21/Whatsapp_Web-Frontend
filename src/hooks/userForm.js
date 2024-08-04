@@ -9,7 +9,7 @@ export default function useForm(inputTypes) {
   const { logedUser } = useAuth()
   const navigate = useNavigate()
 
-  async function handleSubmit(event, typeUrl, endpoint, method) {
+  async function handleSubmit(event, typeUrl, endpoint, method, to) {
     event.preventDefault()
     const formElement = event.target
 
@@ -17,6 +17,10 @@ export default function useForm(inputTypes) {
     const isCorrect = validateForm(formData, formElement, inputTypes)
 
     if(!isCorrect) return
+
+    if(formData.img) {
+      console.log("true")
+    }
 
     try {
       const response = await fetch(URL[typeUrl] + endpoint, {
@@ -32,7 +36,7 @@ export default function useForm(inputTypes) {
 
       if(response.ok) {
         logedUser(data)
-        navigate("/create-profile")
+        navigate(to)
       }else {
         setMessage(data.message)
       }

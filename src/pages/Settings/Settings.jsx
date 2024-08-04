@@ -26,8 +26,8 @@ export default function Settings() {
         <div className="user-info">
           <Avatar width="82px" height="82px" className="separator"/>
           <div className="info">
-            <h3>{ user.name }</h3>
-            <p>{ user.description }</p>
+            <h3>{ user?.name }</h3>
+            <p>{ user?.description }</p>
           </div>
         </div>
         <div className="list">

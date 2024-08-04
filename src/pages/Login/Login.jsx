@@ -2,11 +2,15 @@ import Input from '../../components/Input';
 import useForm from '../../hooks/userForm';
 import { useState } from 'react';
 import { VisibilityOffOutlined, VisibilityOutlined } from "@mui/icons-material/"
-
+import { useAuth } from '../../hooks/useAuth';
+import { Navigate } from 'react-router-dom';
 
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
     const { handleSubmit } = useForm(["email", "password"])
+    const { isAuthenticated } = useAuth()
+
+    if(isAuthenticated) return <Navigate to="/" />
 
     function handleClick() {
       setShowPassword(!showPassword)
@@ -16,7 +20,7 @@ export default function Login() {
         <div className="bg-blue-dark h-screen flex">
             <section className='flex flex-1 items-center justify-center'>
                 <form
-                    onSubmit={(event) => handleSubmit(event, "user", "register", "POST")}
+                    onSubmit={(event) => handleSubmit(event, "user", "register", "POST", "/create-profile")}
                     className="flex flex-col text-center w-full max-w-sm"
                 >
                     <h1 className='text-grey-light text-2xl text-'>

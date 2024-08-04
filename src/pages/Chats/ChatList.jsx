@@ -1,16 +1,13 @@
 import DoneAllOutlinedIcon from '@mui/icons-material/DoneAllOutlined';
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
 import Avatar from "@mui/material/Avatar";
 import { Box } from '@mui/material';
 import FooterPriv from "./FooterPriv"
 
-const ChatList = ({ list, onSelect }) => {
+const ChatList = ({ list }) => {
   return (
-    <section className="bg-blue-black flex flex-col flex-1 justify-between overflow-y-auto">
-      <List>
+    <>
         {list.map((chat, index) => (
-          <ListItem key={index} className="hover:bg-blue-dark" onClick={() => onSelect(index)}>
+          <li key={index} className="hover:bg-blue-dark">
             <div className="flex w-full gap-2 relative py-2 cursor-pointer">
               <Box className="relative flex items-center">
                 <Avatar src={chat.photo} />
@@ -31,11 +28,10 @@ const ChatList = ({ list, onSelect }) => {
                 </div>
               </div>
             </div>
-          </ListItem>
+          </li>
         ))}
-      </List>
       <FooterPriv />
-    </section>
+    </>
   );
 };
 

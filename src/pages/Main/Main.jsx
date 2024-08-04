@@ -1,20 +1,22 @@
 import { Navigate, Outlet } from "react-router-dom"
 import Navbar from "../../components/Navbar"
-import "./Main.css"
 import { useAuth } from "../../hooks/useAuth"
+import { Suspense } from "react"
 
 export default function Main() {
   const { user } = useAuth()
 
-  if(user.isNew) return <Navigate to="/create-profile" />
+  if(user?.isNew) return <Navigate to="/create-profile" />
 
   return (
-    <main className="main">
+    <main className="flex h-[100vh]">
       <Navbar />
-      <section className="outlet">
-        <Outlet />
+      <section className="h-[100vh] bg-blue-black w-[30%]">
+        <Suspense>
+          <Outlet />
+        </Suspense>
       </section>
-      <section className="chat-select">
+      <section className="bg-blue-dark flex-1">
       </section>
     </main>
   )

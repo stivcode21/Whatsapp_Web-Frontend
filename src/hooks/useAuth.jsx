@@ -1,49 +1,52 @@
-import { createContext, useState, useContext } from "react"
-/*import { AUTH_URL } from "../constants"
-import Cookies from "js-cookie"*/
+import { createContext, useState, useContext, useEffect } from "react"
+import { URL } from "../constants"
+import Cookies from "js-cookie"
 
 const AuthContext = createContext()
 
 export function AuthProvider({ children }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [user, setUser] = useState(null)
 
-  /*useEffect(() => {
+  useEffect(() => {
     async function isAuth() {
-      const cookies = Cookies.get()
+      const cookie = Cookies.get("token")
       
-      if(cookies.token) {
-        const response = await fetch(AUTH_URL + "/verify", {
+      if(!cookie) return setIsLoading(false)
+
+      try {
+        const response = await fetch(URL["user"] + "verify-token", {
           method: "GET",
           credentials: "include"
         })
 
-        const user = await response.json()
+        const data = await response.json()
 
-        if(user.id) {
-          setUser(user)
-          setIsAuthenticated(true)
+        if(data.user) {
+          logedUser(data.user)
+        } else {
+          setIsLoading(false)
         }
-
+      } catch (error) {
+        setIsLoading(false)
       }
-
-      setIsLoading(false)
     }
 
     isAuth()
-
-    setIsLoading(false)
-  }, [])*/
+  }, [])
 
   function logedUser(data) {
     setUser(data)
     setIsAuthenticated(true)
+    setIsLoading(false)
   }
 
   return (
     <AuthContext.Provider value={{
       user,
       isAuthenticated,
+      isLoading,
       logedUser
     }}>
       { children }

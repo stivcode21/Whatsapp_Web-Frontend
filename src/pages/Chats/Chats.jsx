@@ -5,7 +5,7 @@ import data from "../../database/chats.json";
 import NoChats from "./NoChats";
 import { useState, useMemo, useRef } from "react";
 
-export default function Chats({ onSelect }) {
+export default function Chats() {
   const [filter, setFilter] = useState("all")
 
   const formRef = useRef(null)
@@ -30,15 +30,17 @@ export default function Chats({ onSelect }) {
   }, [filter])
 
   return (
-      <>
+      <div className="flex flex-col h-full">
         <ChatHeader>
           <FilterButtons handleClick={handleClick} formRef={formRef} />
         </ChatHeader>
+        <ul className="flex-1 overflow-y-auto">
         {
           visibleList.length > 0
-            ? <ChatList list={visibleList} onSelect={onSelect} />
+            ? <ChatList list={visibleList} />
             : <NoChats filter={filter} handleClick={handleClick} />
         }
-      </>
+        </ul>
+      </div>
   );
 }
