@@ -23,6 +23,8 @@ export function AuthProvider({ children }) {
 
         const data = await response.json()
 
+        console.log(data.user)
+
         if(data.user) {
           logedUser(data.user)
         } else {

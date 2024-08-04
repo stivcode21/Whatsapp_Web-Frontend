@@ -33,7 +33,7 @@ export default function Navbar() {
               <Settings />  
             </MenuLink>
             <MenuLink to="/profile">
-              <Avatar />
+              <Avatar className="size-[30px] flex"/>
             </MenuLink>
           </div>
         </ul>

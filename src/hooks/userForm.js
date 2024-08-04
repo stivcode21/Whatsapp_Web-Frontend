@@ -4,9 +4,25 @@ import { URL } from "../constants";
 import { useAuth } from "./useAuth";
 import { useNavigate } from "react-router-dom";
 
+function imagetoBase64(image) {
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader()
+
+    fileReader.addEventListener("load", () => {
+      resolve(fileReader.result)
+    })
+
+    fileReader.addEventListener("error", (error) => {
+      reject(error)
+    })
+
+    fileReader.readAsDataURL(image)
+  })
+}
+
 export default function useForm(inputTypes) {
   const [message, setMessage] = useState("")
-  const { logedUser } = useAuth()
+  const { user, logedUser } = useAuth()
   const navigate = useNavigate()
 
   async function handleSubmit(event, typeUrl, endpoint, method, to) {
@@ -18,8 +34,13 @@ export default function useForm(inputTypes) {
 
     if(!isCorrect) return
 
-    if(formData.img) {
-      console.log("true")
+    if(formData?.image) {
+      formData.type = formData.image.type
+      formData.image = await imagetoBase64(formData.image)
+    }
+
+    if(user?.id) {
+      formData.id = user.id
     }
 
     try {

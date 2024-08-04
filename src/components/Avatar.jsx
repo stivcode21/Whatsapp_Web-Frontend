@@ -5,7 +5,7 @@ export default function Avatar({ className }) {
 
   return (
     <div className={className}>
-      <img src={user?.image} alt="" />
+      <img src={user.image} alt="" className="size-full"/>
     </div>
   )
 }
