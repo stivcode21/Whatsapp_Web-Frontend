@@ -11,7 +11,7 @@ export default function Main() {
   return (
     <main className="flex h-[100vh]">
       <Navbar />
-      <section className="h-[100vh] bg-blue-black w-[30%]">
+      <section className="h-[100vh] bg-blue-black w-[30%] border-r-[1px] border-grey-border">
         <Suspense>
           <Outlet />
         </Suspense>

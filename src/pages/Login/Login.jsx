@@ -17,7 +17,7 @@ export default function Login() {
     }
     
     return (
-        <div className="bg-blue-dark h-screen flex">
+        <div className="bg-blue-darker h-screen flex">
             <section className='flex flex-1 items-center justify-center'>
                 <form
                     onSubmit={(event) => handleSubmit(event, "user", "register", "POST", "/create-profile")}

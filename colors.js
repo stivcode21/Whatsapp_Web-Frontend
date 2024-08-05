@@ -5,12 +5,15 @@ const colors = {
     green     : '#0BA884',   // Primary color
     blue      : '#3EA5C3',   // Blue Gray for subtle backgrounds or text
     blueGrey  : '#6F8997',
-    blueDark  : '#132026',   // Dark Blue for dark mode backgrounds
-    blueBlack : '#0e151b',
-    grey      : '#26353D',
-    lightGray : '#CED1D4',   // Light Gray for backgrounds or text
+    blueDark  : '#222E35',   // Dark Blue for dark mode backgrounds
+    blueDarker: '#132026',
+    blueBlack : '#111B21',
+    grey      : '#374248',
+    lightGray : '#AEBAC1',   // Light Gray for backgrounds or text
     mediumGray: '#6A747B',
-    red       : '#FF0000'    // Medium Gray for secondary text or borders Stashed changes
+    borderGrey: '#2F3B43',
+    inputGrey : '#202C33',
+    red       : '#f15c6d'    // Medium Gray for secondary text or borders Stashed changes
 };
 
 export const PalleteColors = {
@@ -24,6 +27,8 @@ export const PalleteColors = {
         main: colors.grey,
         light: colors.lightGray,
         medium: colors.mediumGray,
+        border: colors.borderGrey,
+        input: colors.inputGrey,
 
         300: alpha(colors.grey, .3),
         500: alpha(colors.grey, .5),
@@ -33,6 +38,7 @@ export const PalleteColors = {
         main: colors.blue,
         grey: colors.blueGrey,
         dark: colors.blueDark,
+        darker: colors.blueDarker,
         black: colors.blueBlack,
 
         300: alpha(colors.blue, .3),

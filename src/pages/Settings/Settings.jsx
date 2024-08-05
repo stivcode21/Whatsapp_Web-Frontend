@@ -1,6 +1,7 @@
 import "./Settings.css"
 import Avatar from "../../components/Avatar"
 import { useAuth } from "../../hooks/useAuth"
+import { AccountCircle, Lock, ChatBubble, Notifications, Help, Logout } from "@mui/icons-material"
 
 export default function Settings() {
   const { user } = useAuth()
@@ -10,44 +11,44 @@ export default function Settings() {
   }
 
   return (
-    <div className="settings">
+    <div className="h-full flex flex-col">
       <header>
-        <div className="title">
-          <h1> Ajustes </h1>
+        <div className="h-[60px] pl-[25px] pr-[20px] flex items-center">
+          <h1 className="text-white font-bold text-2xl"> Ajustes </h1>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="flex">
           <InputSearch 
             name="settings"
             placeholder="Busca en los ajustes"
           />
         </form>
       </header>
-      <div className="content">
-        <div className="user-info">
-          <Avatar width="82px" height="82px" className="separator"/>
+      <div className="flex-1 overflow-y-auto">
+        <div className="h-[100px] flex items-center cursor-pointer hover:bg-blue-dark">
+          <Avatar className="size-[82px] my-2 mx-4"/>
           <div className="info">
-            <h3>{ user?.name }</h3>
-            <p>{ user?.description }</p>
+            <h3 className="text-[17px] font-normal text-white">{ user?.name }</h3>
+            <p className="text-[14px] text-grey-light opacity-[0.8]">{ user?.description }</p>
           </div>
         </div>
-        <div className="list">
+        <div className="flex flex-col">
           <SettingsItem title="Cuenta">
-            {/* <FontAwesomeIcon icon={faCircleUser} size="lg" /> */}
+            <AccountCircle />
           </SettingsItem>
           <SettingsItem title="Privacidad">
-            {/* <FontAwesomeIcon icon={faLock} size="lg" /> */}
+            <Lock />
           </SettingsItem>
           <SettingsItem title="Chats">
-            {/* <FontAwesomeIcon icon={faMessage} size="lg" /> */}
+            <ChatBubble />
           </SettingsItem>
           <SettingsItem title="Notificaciones">
-            {/* <FontAwesomeIcon icon={faBell} size="lg" /> */}
+            <Notifications />
           </SettingsItem>
           <SettingsItem title="Ayuda">
-            {/* <FontAwesomeIcon icon={faCircleQuestion} size="lg" /> */}
+            <Help />
           </SettingsItem>
-          <SettingsItem title="Cerrar Sesión">
-            {/* <FontAwesomeIcon icon={faRightFromBracket} size="lg" /> */}
+          <SettingsItem title="Cerrar Sesión" className="text-red-main">
+            <Logout />
           </SettingsItem>
         </div>
       </div>
@@ -55,13 +56,13 @@ export default function Settings() {
   )
 }
 
-function SettingsItem({ children, title }) {
+function SettingsItem({ children, title, className }) {
   return (
-    <div className="settings-item">
-      <div className="icon">
+    <div className={"h-[70px] flex w-full text-grey-light cursor-pointer hover:bg-blue-dark " + className}>
+      <div className="w-[60px] px-4 flex items-center justify-center">
         { children }
       </div>
-      <div className="text">
+      <div className="flex-1 flex items-center border-b-[1px] border-grey-border">
         <h3>{ title }</h3>
       </div>
     </div>
@@ -70,13 +71,14 @@ function SettingsItem({ children, title }) {
 
 function InputSearch({ name, placeholder }) {
   return (
-    <label htmlFor={name} className="input-search">
+    <label htmlFor={name} className="w-full my-2 mx-4 py-2 px-4 bg-grey-input rounded-[8px]">
       <input 
         type="text" 
         name={name} 
         id={name} 
         placeholder={placeholder}
         autoComplete="off"
+        className="text-[15px] bg-transparent text-white"
       />
     </label>
   )

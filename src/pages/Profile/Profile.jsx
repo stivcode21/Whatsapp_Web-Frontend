@@ -1,4 +1,3 @@
-import "./Profile.css"
 import { useAuth } from "../../hooks/useAuth"
 import Avatar from "../../components/Avatar"
 
@@ -7,38 +6,38 @@ export default function Profile() {
   const { name, email, description } = user
 
   return(
-    <div className="profile">
-      <header>
-        <h1> Perfil </h1>
+    <div className="h-full flex flex-col">
+      <header className="h-[60px] px-5 flex items-center">
+        <h1 className="text-2xl font-bold text-[white]"> Perfil </h1>
       </header>
-      <div className="content">
-        <div className="image">
-          <Avatar width="200px" height="200px" className="image-user"/>
+      <div className="flex flex-col flex-1">
+        <div className="my-7">
+          <Avatar className="size-[200px] mx-auto"/>
         </div>
-        <form>
-          <label htmlFor="name">
-            <span>Nombre</span>
+        <form className="px-[30px] flex flex-col">
+          <label htmlFor="name" className="p-[14px 0 10px] text-grey-light mb-[10px]">
+            <span className="text-[14px] font-normal mb-[15px] text-green-main">Nombre</span>
             <div>
-              <div id="name" name="name" role="textarea" className="input">
+              <div id="name" name="name" role="textarea" className="text-[16px] font-normal">
                 { name }
               </div>
             </div>
           </label>
 
-          <label htmlFor="description">
-            <span>Descripción</span>
+          <label htmlFor="name" className="p-[14px 0 10px] text-grey-light mb-[10px]">
+            <span className="text-[14px] font-normal mb-[15px] text-green-main">Descripción</span>
             <div>
-              <div id="description" name="description" role="textarea" className="input">
+              <div id="name" name="name" role="textarea" className="text-[16px] font-normal">
                 { description }
               </div>
             </div>
           </label>
 
-          <label htmlFor="email">
-            <span>Correo electrónico </span>
+          <label htmlFor="name" className="p-[14px 0 10px] text-grey-light mb-[10px]">
+            <span className="text-[14px] font-normal mb-[15px] text-green-main">Correo electrónico</span>
             <div>
-              <div id="email" name="email" role="textarea" className="input">
-                {email}
+              <div id="name" name="name" role="textarea" className="text-[16px] font-normal">
+                { email }
               </div>
             </div>
           </label>

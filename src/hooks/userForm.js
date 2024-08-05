@@ -3,6 +3,7 @@ import { getDataForm, validateForm } from "../utils/form";
 import { URL } from "../constants";
 import { useAuth } from "./useAuth";
 import { useNavigate } from "react-router-dom";
+import { Buffer } from "buffer";
 
 function imagetoBase64(image) {
   return new Promise((resolve, reject) => {
@@ -35,7 +36,6 @@ export default function useForm(inputTypes) {
     if(!isCorrect) return
 
     if(formData?.image) {
-      formData.type = formData.image.type
       formData.image = await imagetoBase64(formData.image)
     }
 
@@ -55,7 +55,13 @@ export default function useForm(inputTypes) {
 
       const data = await response.json()
 
-      if(response.ok) {
+      console.log(data)
+
+      if(data.id) {
+        console.log("ka")
+        if(data.image) {
+          data.image = Buffer.from(data.image).toString("utf-8")
+        }
         logedUser(data)
         navigate(to)
       }else {

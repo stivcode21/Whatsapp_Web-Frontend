@@ -25,7 +25,7 @@ function InputImage(props) {
     <div className="mb-8 relative">
     <label 
       htmlFor={props.id} 
-      className="flex relative flex size-[120px] rounded-full border overflow-hidden border-4 border-grey-light outline outline-green-main outline-2"
+      className="flex relative flex size-[120px] rounded-full border overflow-hidden border-4 border-white outline outline-green-main outline-2"
     >
       <img 
         src="../../../assets/default.jpg" 
@@ -56,7 +56,7 @@ export default function Input(props) {
   if(props.type === "image") return <InputImage {...props} />
 
   return (
-    <div className="mb-8 relative">
+    <div className="mb-8 relative w-full">
       <label 
         htmlFor={props.id} 
         className="text-green-main px-3.5 flex gap-2 border-[1px] border-green-700 items-center rounded-2xl"

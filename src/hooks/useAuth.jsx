@@ -1,6 +1,7 @@
 import { createContext, useState, useContext, useEffect } from "react"
 import { URL } from "../constants"
 import Cookies from "js-cookie"
+import { Buffer } from "buffer"
 
 const AuthContext = createContext()
 
@@ -23,12 +24,11 @@ export function AuthProvider({ children }) {
 
         const data = await response.json()
 
-        console.log(data.user)
-
         if(data.user) {
+          if(data.user.image) {
+            data.user.image = Buffer.from(data.user.image).toString("utf-8")
+          }
           logedUser(data.user)
-        } else {
-          setIsLoading(false)
         }
       } catch (error) {
         setIsLoading(false)
@@ -40,8 +40,8 @@ export function AuthProvider({ children }) {
 
   function logedUser(data) {
     setUser(data)
-    setIsAuthenticated(true)
     setIsLoading(false)
+    setIsAuthenticated(true)
   }
 
   return (

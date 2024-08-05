@@ -4,14 +4,14 @@ import useForm from "../../hooks/userForm";
 export default function CreateProfile() {
   const { handleSubmit } = useForm(["image", "text", "text"])
   return (
-    <div className="h-screen flex flex-col bg-blue-dark px-6 items-center">
-      <header className="flex flex-col items-center pt-24">
-        <h1 className="text-3xl text-white font-medium">Crea tu perfil</h1>
+    <div className="h-screen bg-blue-black items-center">
+      <header className="flex flex-col items-center pt-20 pb-8">
+        <h1 className="text-3xl text-white font-bold">Crea tu perfil</h1>
         <p className="block text-gray-500 pt-3">Elige como te veran tus contactos.</p>
       </header>
       <form
         onSubmit={(event) => handleSubmit(event, "user", "create-profile", "POST", "/")}
-        className="flex items-center flex-col text-center mx-w-sm"
+        className="flex flex-col w-[350px] items-center mx-w-md mx-auto"
       >
         <Input 
           type="image"
