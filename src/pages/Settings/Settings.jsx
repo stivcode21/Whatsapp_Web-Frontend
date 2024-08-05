@@ -1,6 +1,6 @@
-import "./Settings.css"
 import Avatar from "../../components/Avatar"
 import { useAuth } from "../../hooks/useAuth"
+import InputSearch from "../../components/InputSearch"
 import { AccountCircle, Lock, ChatBubble, Notifications, Help, Logout } from "@mui/icons-material"
 
 export default function Settings() {
@@ -66,20 +66,5 @@ function SettingsItem({ children, title, className }) {
         <h3>{ title }</h3>
       </div>
     </div>
-  )
-}
-
-function InputSearch({ name, placeholder }) {
-  return (
-    <label htmlFor={name} className="w-full my-2 mx-4 py-2 px-4 bg-grey-input rounded-[8px]">
-      <input 
-        type="text" 
-        name={name} 
-        id={name} 
-        placeholder={placeholder}
-        autoComplete="off"
-        className="text-[15px] bg-transparent text-white"
-      />
-    </label>
   )
 }

@@ -6,11 +6,19 @@ import { useAuth } from '../../hooks/useAuth';
 import { Navigate } from 'react-router-dom';
 
 export default function Login() {
+    const [typeForm, setTypeForm] = useState("login")
     const [showPassword, setShowPassword] = useState(false);
     const { handleSubmit } = useForm(["email", "password"])
     const { isAuthenticated } = useAuth()
 
     if(isAuthenticated) return <Navigate to="/" />
+
+    function handleClickForm() {
+        setTypeForm(tf => {
+            if(tf === "login") return "register"
+            return "login"
+        })
+    }
 
     function handleClick() {
       setShowPassword(!showPassword)
@@ -20,11 +28,13 @@ export default function Login() {
         <div className="bg-blue-darker h-screen flex">
             <section className='flex flex-1 items-center justify-center'>
                 <form
-                    onSubmit={(event) => handleSubmit(event, "user", "register", "POST", "/create-profile")}
+                    onSubmit={(event) => handleSubmit(event, typeForm, "POST")}
                     className="flex flex-col text-center w-full max-w-sm"
                 >
                     <h1 className='text-grey-light text-2xl text-'>
-                        Iniciar Sesión
+                        {
+                            typeForm === "login" ? "Iniciar Sesión" : "Crear cuenta"
+                        }
                     </h1>
                     <p className='text-sm text-grey-medium mt-2 mb-10'>
                         Solo necesitamos unos cuantos datos
@@ -51,7 +61,10 @@ export default function Login() {
                             }
                         </div>
                     </Input>
-                    <button className="mt-8 text-grey-light">
+                    <button type='button' onClick={handleClickForm}>
+                        { typeForm === "login" ? "Crear cuenta" : "Iniciar sesión"}
+                    </button>
+                    <button className="mt-8 text-grey-light" type="submit">
                         Enviar
                     </button>
                 </form>

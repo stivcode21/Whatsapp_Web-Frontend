@@ -27,11 +27,11 @@ export default function States() {
           <h2 className='text-green-main font-extralight py-5 pl-7 cursor-default'>RECIENTE</h2>
 
           {data.map((state, i) => (
-            <div key={i} className='flex gap-3 pl-5 hover:bg-grey-main cursor-pointer'>
+            <div key={i} className='flex gap-3 pl-5 hover:bg-blue-dark cursor-pointer'>
               <div className='py-2'>
                 <Avatar sx={{ width: 50, height: 50 }} src={state.previe} className='object-cover bg-cover border-2 border-blue-dark outline outline-2 outline-green-main' />
               </div>
-              <div className='w-full border-b-[1px] border-gray-700 py-2'>
+              <div className='w-full border-b-[1px] border-grey-border py-2'>
                 <h3 className='text-white font-light'>{state.nameFriend}</h3>
                 <p className='text-grey-medium text-sm'>{state.LastTime_State}</p>
               </div>

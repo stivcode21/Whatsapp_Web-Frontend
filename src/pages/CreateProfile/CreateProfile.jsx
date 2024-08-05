@@ -10,7 +10,7 @@ export default function CreateProfile() {
         <p className="block text-gray-500 pt-3">Elige como te veran tus contactos.</p>
       </header>
       <form
-        onSubmit={(event) => handleSubmit(event, "user", "create-profile", "POST", "/")}
+        onSubmit={(event) => handleSubmit(event, "create-profile", "POST")}
         className="flex flex-col w-[350px] items-center mx-w-md mx-auto"
       >
         <Input 

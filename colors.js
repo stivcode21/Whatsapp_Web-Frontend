@@ -2,7 +2,8 @@ import { alpha } from "@mui/material";
 
 // colors.js
 const colors = {
-    green     : '#0BA884',   // Primary color
+    green     : '#0BA884',
+    greenDark : '#0A332C',  // Primary color
     blue      : '#3EA5C3',   // Blue Gray for subtle backgrounds or text
     blueGrey  : '#6F8997',
     blueDark  : '#222E35',   // Dark Blue for dark mode backgrounds
@@ -19,6 +20,7 @@ const colors = {
 export const PalleteColors = {
     green: {
         main: colors.green,
+        dark: colors.greenDark,
         300: alpha(colors.green, .3),
         500: alpha(colors.green, .5),
         700: alpha(colors.green, .7),

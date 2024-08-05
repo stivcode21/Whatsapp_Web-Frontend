@@ -16,7 +16,7 @@ function Select({ value, isDefault, name, children, className }) {
 export function SelectFilter({ value, isDefault, name, children }) {
   return (
     <Select 
-      className="bg-grey-main text-blue-grey rounded-2xl px-3 py-1 has-[:checked]:bg-green-300 has-[:checked]:text-green-main"
+      className="bg-grey-input text-blue-grey rounded-2xl px-3 py-1 has-[:checked]:bg-green-dark has-[:checked]:text-green-main"
       value={value}
       name={name}
       isDefault={isDefault}

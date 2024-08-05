@@ -2,9 +2,7 @@ import { Navigate, Outlet } from "react-router-dom"
 import { useAuth } from "../../hooks/useAuth"
 
 export default function Auth() {
-  const { isAuthenticated, isLoading, user } = useAuth()
-
-  console.log(user)
+  const { isAuthenticated, isLoading } = useAuth()
 
   if(isAuthenticated) return <Outlet />
 

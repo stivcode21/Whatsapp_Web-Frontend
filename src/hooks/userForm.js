@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { getDataForm, validateForm } from "../utils/form";
-import { URL } from "../constants";
+import { NAVIGATE_URL, URL } from "../constants";
 import { useAuth } from "./useAuth";
 import { useNavigate } from "react-router-dom";
 import { Buffer } from "buffer";
@@ -26,7 +26,7 @@ export default function useForm(inputTypes) {
   const { user, logedUser } = useAuth()
   const navigate = useNavigate()
 
-  async function handleSubmit(event, typeUrl, endpoint, method, to) {
+  async function handleSubmit(event, endpoint, method) {
     event.preventDefault()
     const formElement = event.target
 
@@ -44,7 +44,7 @@ export default function useForm(inputTypes) {
     }
 
     try {
-      const response = await fetch(URL[typeUrl] + endpoint, {
+      const response = await fetch(URL["user"] + endpoint, {
         method,
         credentials: "include",
         headers: {
@@ -55,15 +55,12 @@ export default function useForm(inputTypes) {
 
       const data = await response.json()
 
-      console.log(data)
-
       if(data.id) {
-        console.log("ka")
         if(data.image) {
           data.image = Buffer.from(data.image).toString("utf-8")
         }
         logedUser(data)
-        navigate(to)
+        navigate(NAVIGATE_URL[endpoint])
       }else {
         setMessage(data.message)
       }
