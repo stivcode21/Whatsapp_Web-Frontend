@@ -32,7 +32,9 @@ export default function CreateProfile() {
           icon="info"
           placeholder="Descripción"
         />
-        <button>Enviar</button>
+        <button className="py-2 px-4 bg-green-dark text-green-main rounded-[5px]">
+          Enviar
+        </button>
       </form>
     </div>
   );

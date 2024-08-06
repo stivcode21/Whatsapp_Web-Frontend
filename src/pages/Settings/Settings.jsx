@@ -2,12 +2,34 @@ import Avatar from "../../components/Avatar"
 import { useAuth } from "../../hooks/useAuth"
 import InputSearch from "../../components/InputSearch"
 import { AccountCircle, Lock, ChatBubble, Notifications, Help, Logout } from "@mui/icons-material"
+import { Link, useNavigate } from "react-router-dom"
+import { URL } from "../../constants"
 
 export default function Settings() {
-  const { user } = useAuth()
+  const { user, logoutUser } = useAuth()
+  const navigate = useNavigate()
 
   function handleSubmit(event) {
     event.preventDefault()
+  }
+
+  async function handleClick(event) {
+    const element = event.target.closest("div[data-settings]")
+    const dataset = element.dataset.settings
+
+    if(dataset === "logout") {
+      const response = await fetch(URL.user + "logout", {
+        method: "GET",
+        credentials: "include"
+      })
+
+      if(response.ok) {
+        logoutUser()
+        navigate("/login")
+      }
+    }
+
+    console.log(dataset)
   }
 
   return (
@@ -24,30 +46,33 @@ export default function Settings() {
         </form>
       </header>
       <div className="flex-1 overflow-y-auto">
-        <div className="h-[100px] flex items-center cursor-pointer hover:bg-blue-dark">
+        <Link 
+          to="/profile"
+          className="h-[100px] flex items-center cursor-pointer hover:bg-blue-dark"
+        >
           <Avatar className="size-[82px] my-2 mx-4"/>
           <div className="info">
             <h3 className="text-[17px] font-normal text-white">{ user?.name }</h3>
             <p className="text-[14px] text-grey-light opacity-[0.8]">{ user?.description }</p>
           </div>
-        </div>
-        <div className="flex flex-col">
-          <SettingsItem title="Cuenta">
+        </Link>
+        <div className="flex flex-col" onClick={handleClick}>
+          <SettingsItem title="Cuenta" data="acount">
             <AccountCircle />
           </SettingsItem>
-          <SettingsItem title="Privacidad">
+          <SettingsItem title="Privacidad" data="privacity">
             <Lock />
           </SettingsItem>
-          <SettingsItem title="Chats">
+          <SettingsItem title="Chats" data="chats">
             <ChatBubble />
           </SettingsItem>
-          <SettingsItem title="Notificaciones">
+          <SettingsItem title="Notificaciones" data="notifications">
             <Notifications />
           </SettingsItem>
-          <SettingsItem title="Ayuda">
+          <SettingsItem title="Ayuda" data="help">
             <Help />
           </SettingsItem>
-          <SettingsItem title="Cerrar Sesión" className="text-red-main">
+          <SettingsItem title="Cerrar Sesión" className="text-red-main" data="logout">
             <Logout />
           </SettingsItem>
         </div>
@@ -56,9 +81,9 @@ export default function Settings() {
   )
 }
 
-function SettingsItem({ children, title, className }) {
+function SettingsItem({ children, title, className, data }) {
   return (
-    <div className={"h-[70px] flex w-full text-grey-light cursor-pointer hover:bg-blue-dark " + className}>
+    <div className={"h-[70px] flex w-full text-grey-light cursor-pointer hover:bg-blue-dark " + className} data-settings={data}>
       <div className="w-[60px] px-4 flex items-center justify-center">
         { children }
       </div>

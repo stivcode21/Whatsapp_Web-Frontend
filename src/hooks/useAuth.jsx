@@ -44,12 +44,18 @@ export function AuthProvider({ children }) {
     setIsAuthenticated(true)
   }
 
+  function logoutUser() {
+    setUser(null)
+    setIsAuthenticated(false)
+  }
+
   return (
     <AuthContext.Provider value={{
       user,
       isAuthenticated,
       isLoading,
-      logedUser
+      logedUser,
+      logoutUser
     }}>
       { children }
     </AuthContext.Provider>

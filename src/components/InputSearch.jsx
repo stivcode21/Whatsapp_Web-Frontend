@@ -12,7 +12,7 @@ export default function InputSearch({ name, placeholder }) {
         id={name} 
         placeholder={placeholder}
         autoComplete="off"
-        className="text-[15px] bg-transparent text-white"
+        className="w-full text-[15px] bg-transparent text-white"
       />
     </label>
   )

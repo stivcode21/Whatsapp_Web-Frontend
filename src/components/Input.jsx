@@ -59,7 +59,7 @@ export default function Input(props) {
     <div className="mb-8 relative w-full">
       <label 
         htmlFor={props.id} 
-        className="text-green-main px-3.5 flex gap-2 border-[1px] border-green-700 items-center rounded-2xl"
+        className="text-green-700 px-3.5 flex gap-2 border-[1px] border-green-700 items-center rounded-2xl hover:border-green-main hover:text-green-main"
       >
         {
           props.icon && ICON_NAMES[props.icon]

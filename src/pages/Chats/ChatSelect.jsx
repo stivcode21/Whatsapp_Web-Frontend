@@ -2,7 +2,6 @@ import { Avatar } from "@mui/material";
 import { Videocam, Search, MoreVert, EmojiEmotionsOutlined, Add, KeyboardVoice } from "@mui/icons-material";
 import dataMessages from "../../database/messages.json"
 import { useRef, useState, useEffect } from "react";
-import Button from "../Common/Button";
 import EmojiPicker from "./EmojiPicker";
 import FooterPriv from "./FooterPriv";
 
@@ -149,14 +148,14 @@ export default function ChatSelect({ user }) {
       {showPicker ? <EmojiPicker onSelect={handleSelect} /> : ""}
       <footer className="bg-[#202c33] py-3 px-8 flex items-center gap-4">
         <div className="text-grey-light flex gap-4">
-          <Button
+          <button
             onClick={() => {
               setShowPicker(!showPicker);
               inputRef.current.focus(); // Enfocar el input al mostrar el selector de emojis
             }}
           >
             <EmojiEmotionsOutlined className="cursor-pointer" />
-          </Button>
+          </button>
           <Add className="cursor-pointer" />
         </div>
         <form className="flex-1 mx-[8px] my-[5px]" onSubmit={handleSubmit}>

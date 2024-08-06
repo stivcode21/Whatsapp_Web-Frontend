@@ -17,10 +17,10 @@ function MenuLink({ to, children }) {
 
 export default function Navbar() {
   return (
-    <section className="flex w-[60px] bg-blue-dark border-r-[1px] border-grey-border">
-      <nav className="w-full">
-        <ul className="h-full flex flex-col items-center justify-between py-4 text-grey-light">
-          <div className="flex flex-col gap-4">
+    <section className="border-grey-border overflow-y-auto flex usm:bg-blue-black border-t-[1px] w-full sm:max-w-[60px] border-r-[1px] bg-blue-dark">
+      <nav className="flex w-full items-center justify-center">
+        <ul className="py-4 flex usm:flex-row gap-10 h-full items-center sm:w-full gap-4 flex-col justify-between text-grey-light">
+          <div className="flex usm:gap-10 sm:flex-col gap-4">
             <MenuLink to="">
               <ChatBubble fontSize="small" />
             </MenuLink>
@@ -28,7 +28,7 @@ export default function Navbar() {
               <DataUsage />
             </MenuLink>
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="flex usm:gap-10 sm:flex-col gap-4">
             <MenuLink to="/settings">
               <Settings />  
             </MenuLink>

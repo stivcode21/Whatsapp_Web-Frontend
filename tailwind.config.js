@@ -8,7 +8,10 @@ export default {
   ],
   theme: {
     extend: {
-      colors: PalleteColors
+      colors: PalleteColors,
+      screens: {
+        "usm": { "min": "0px", "max" : "640px" }
+      }
     },
   },
   plugins: [],

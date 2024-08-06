@@ -29,9 +29,9 @@ export default function Login() {
             <section className='flex flex-1 items-center justify-center'>
                 <form
                     onSubmit={(event) => handleSubmit(event, typeForm, "POST")}
-                    className="flex flex-col text-center w-full max-w-sm"
+                    className="flex flex-col text-center w-full max-w-sm items-center"
                 >
-                    <h1 className='text-grey-light text-2xl text-'>
+                    <h1 className='text-3xl text-white font-bold'>
                         {
                             typeForm === "login" ? "Iniciar Sesión" : "Crear cuenta"
                         }
@@ -61,10 +61,10 @@ export default function Login() {
                             }
                         </div>
                     </Input>
-                    <button type='button' onClick={handleClickForm}>
+                    <button type="button" onClick={handleClickForm} className="text-grey-light">
                         { typeForm === "login" ? "Crear cuenta" : "Iniciar sesión"}
                     </button>
-                    <button className="mt-8 text-grey-light" type="submit">
+                    <button className="py-2 px-4 bg-green-dark mt-8 text-green-main rounded-[5px]" type="submit">
                         Enviar
                     </button>
                 </form>

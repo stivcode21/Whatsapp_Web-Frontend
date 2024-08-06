@@ -4,6 +4,7 @@ import FilterButtons from "./FilterButtons";
 import data from "../../database/chats.json";
 import NoChats from "./NoChats";
 import { useState, useMemo, useRef } from "react";
+import InputSearch from "../../components/InputSearch"
 
 export default function Chats() {
   const [filter, setFilter] = useState("all")
@@ -32,7 +33,13 @@ export default function Chats() {
   return (
       <div className="flex flex-col h-full">
         <ChatHeader>
-          <FilterButtons handleClick={handleClick} formRef={formRef} />
+            <form className="flex">
+              <InputSearch
+                name="chats"
+                placeholder="Buscar" 
+              />
+            </form>
+            <FilterButtons handleClick={handleClick} formRef={formRef} />
         </ChatHeader>
         <ul className="flex-1 overflow-y-auto">
         {
