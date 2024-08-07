@@ -1,10 +1,11 @@
-function Select({ value, isDefault, name, children, className }) {
+function Select({ value, isDefault, name, id, children, className }) {
   return (
     <label htmlFor={value} className={className + " relative"}>
       {children}
       <input 
         type="radio" 
         name={name}
+        id={id}
         className="absolute top-0 left-0 w-full h-full cursor-pointer opacity-0" 
         value={value}
         defaultChecked={isDefault} 
@@ -13,12 +14,13 @@ function Select({ value, isDefault, name, children, className }) {
   )
 }
  
-export function SelectFilter({ value, isDefault, name, children }) {
+export function SelectFilter({ value, isDefault, name, id, children }) {
   return (
     <Select 
       className="bg-grey-input text-blue-grey rounded-2xl px-3 py-1 has-[:checked]:bg-green-dark has-[:checked]:text-green-main"
       value={value}
       name={name}
+      id={id}
       isDefault={isDefault}
     >
       { children }

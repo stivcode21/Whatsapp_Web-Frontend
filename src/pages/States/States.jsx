@@ -1,17 +1,27 @@
-import { MoreVertOutlined } from '@mui/icons-material';
-import AddIcon from '@mui/icons-material/Add';
+import { Add, MoreVert } from '@mui/icons-material';
 import { Avatar } from '@mui/material';
 import FooterPriv from '../Chats/FooterPriv';
 import data from '../../database/estados.json'
+import Options from "../../components/Options"
 
 export default function States() {
   return (
     <div className="flex flex-col h-full bg-blue-black">
       <header className="pl-[25px] pr-[20px] h-[60px] flex justify-between items-center">
         <h1 className="text-white font-semibold text-2xl">Estados</h1>
-        <div className='flex gap-5 text-grey-medium'>
-          <AddIcon size={"1.25rem"} className='cursor-pointer' />
-          <MoreVertOutlined size={"1.25rem"} className='cursor-pointer' />
+        <div className='flex gap-5 text-grey-light items-center'>
+          <Options
+            id="add"
+            url="../pages/States/StatesAddModal"
+          >
+            <Add />
+          </Options>
+          <Options
+            id="states-config"
+            url="../pages/States/StatesModal"
+          >
+            <MoreVert />
+          </Options>
         </div>
       </header>
       <div className="flex-1 overflow-y-auto">
