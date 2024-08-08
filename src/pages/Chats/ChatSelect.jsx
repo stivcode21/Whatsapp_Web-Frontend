@@ -1,15 +1,15 @@
 import { Avatar } from "@mui/material";
 import { Videocam, Search, MoreVert, EmojiEmotionsOutlined, Add, KeyboardVoice } from "@mui/icons-material";
-import dataMessages from "../../database/messages.json"
-import { useRef, useState, useEffect } from "react";
 import EmojiPicker from "./EmojiPicker";
 import FooterPriv from "./FooterPriv";
+import { useChat } from "../../hooks/useChat"
+import { useEffect } from "react";
 
 function ChatMessage({ message }) {
   return (
-    <div className={`${message.wasSendByMe ? "justify-end" : ""} flex text-white`}>
+    <div className={`${message.send ? "justify-end" : ""} flex text-white`}>
       <div className={
-        `${message.wasSendByMe ? "bg-green-500" : "bg-grey-main"} 
+        `${message.send ? "bg-green-500" : "bg-grey-main"} 
         py-2 px-4 rounded-lg gap-2 max-w-[500px]`
       }>
         <p className="break-words text-sm">
@@ -27,10 +27,10 @@ function ChatSelectHeader({ user }) {
   return (
     <header className="bg-blue-dark py-[10px] px-[16px] flex items-center">
       <div className="pr-[15px]">
-        <Avatar src={user.photo} />
+        <Avatar src={user.image} />
       </div>
       <div className="flex-1">
-        <p className="text-white font-bold">{user.nameUser}</p>
+        <p className="text-white font-bold">{user.name}</p>
       </div>
       <div className="text-grey-light ml-[20px] flex gap-5">
         <Videocam className="cursor-pointer" />
@@ -41,81 +41,29 @@ function ChatSelectHeader({ user }) {
   )
 }
 
-function formatTime() {
-  const date = new Date()
-  let hours = date.getHours()
-  const minutes = date.getMinutes()
-
-  let result = ""
-
-  if (hours > 12) {
-    hours = hours - 12
-    result = hours + ":" + minutes + " p.m"
-  } else {
-    result = hours + ":" + minutes + " a.m"
-  }
-
-  return result
-}
-
-export default function ChatSelect({ user }) {
-  const [messages, setMessages] = useState(dataMessages); // Estado para almacenar los mensajes
-  const [showPicker, setShowPicker] = useState(false); // Estado para controlar la visibilidad del selector de emojis
-
-  const inputRef = useRef(null); // Referencia al input del mensaje
-
-  function scrollToBottom() {
-    const messagesContainer = document.getElementById('messages-container')
-    if (messagesContainer) {
-      messagesContainer.scrollTo({top: messagesContainer.scrollHeight, behavior: 'smooth'}) // Desplazar el contenedor de mensajes hasta el fondo
-    }
-  }
+export default function ChatSelect() {
+  const { 
+    currentChat, 
+    handleSendMessage, 
+    messages, 
+    handleSelect, 
+    showPicker,
+    handleOpen,
+    inputRef
+  } = useChat()
 
   useEffect(() => {
-    scrollToBottom(); // Llamar a scrollToBottom cada vez que cambien los mensajes
+    function scrollToBottom() {
+      const messagesContainer = document.getElementById('messages-container')
+      if (messagesContainer) {
+        messagesContainer.scrollTo({top: messagesContainer.scrollHeight, behavior: 'smooth'}) // Desplazar el contenedor de mensajes hasta el fondo
+      }
+    }
+
+    scrollToBottom();
   }, [messages]);
 
-  function handleSelect(e) {
-    const start = inputRef.current.selectionStart;
-    const end = inputRef.current.selectionEnd;
-
-    const emoji = e.native;
-    const text = inputRef.current.value;
-
-    const before = text.slice(0, start);
-    const after = text.slice(end);
-
-    inputRef.current.value = before + emoji + after;
-    inputRef.current.selectionStart = before.length + emoji.length;
-    inputRef.current.selectionEnd = before.length + emoji.length;
-    inputRef.current.focus(); // Enfocar el input después de insertar el emoji
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
-
-    let { message } = Object.fromEntries(new FormData(event.target));
-    message = message.trim(); // Eliminar espacios en blanco del mensaje
-
-    if (message.length > 0) {
-      let newMessages = [
-        ...messages,
-        {
-          id: self.crypto.randomUUID(),
-          content: message,
-          time: formatTime(),
-          wasSendByMe: true,
-          isRead: false,
-        },
-      ];
-
-      setMessages(newMessages); // Actualizar el estado de los mensajes
-      setShowPicker(false); // Ocultar el selector de emojis
-      inputRef.current.value = ""; // Limpiar el input del mensaje
-    }
-  }
-
-  if (user === undefined) {
+  if (currentChat === null) {
     return (
       <section className="bg-blue-dark h-screen flex flex-col justify-center items-center text-white">
         <img
@@ -136,7 +84,7 @@ export default function ChatSelect({ user }) {
 
   return (
     <section className="bg-blue-black h-screen flex flex-col relative">
-      <ChatSelectHeader user={user} />
+      <ChatSelectHeader user={currentChat} />
       <main
         id="messages-container"
         className="flex flex-col flex-1 overflow-y-auto px-[60px] py-[10px] gap-1"
@@ -149,16 +97,13 @@ export default function ChatSelect({ user }) {
       <footer className="bg-[#202c33] py-3 px-8 flex items-center gap-4">
         <div className="text-grey-light flex gap-4">
           <button
-            onClick={() => {
-              setShowPicker(!showPicker);
-              inputRef.current.focus(); // Enfocar el input al mostrar el selector de emojis
-            }}
+            onClick={handleOpen}
           >
             <EmojiEmotionsOutlined className="cursor-pointer" />
           </button>
           <Add className="cursor-pointer" />
         </div>
-        <form className="flex-1 mx-[8px] my-[5px]" onSubmit={handleSubmit}>
+        <form className="flex-1 mx-[8px] my-[5px]" onSubmit={handleSendMessage}>
           <input
             ref={inputRef}
             type="text"

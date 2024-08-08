@@ -1,74 +1,48 @@
 [
     {
-        "photo": "../../assets/McLovin.jpg",
-        "nameUser": "Mc Lovin (Tú)",
-        "LastTime_Message": "2:53p.m",
-        "LastContent_Message": "A eso se le llama estrategia",
-        "unread": false,
-        "group": false,
-        "isActive": true
+        "id": 1,
+        "image": "../../assets/McLovin.jpg",
+        "name": "Mc Lovin",
+        "isGroup": false,
+        "isActive": true,
+        "messages": [
+            {
+                "id": 1,
+                "content": "Hola mami",
+                "time": "9:00 p.m",
+                "send": true,
+                "read": true
+            },
+            {
+                "id": 2,
+                "content": "Sé que no me conoces, pero la neta me encantas alv",
+                "time": "9:01 p.m",
+                "send": true,
+                "read": true
+            }
+        ]
     },
     {
-        "photo": "../../assets/avatar-placeholder.jpg",
-        "nameUser": "Gael",
-        "LastTime_Message": "8:00p.m",
-        "LastContent_Message": "Ya quedó el filtradoo!",
-        "unread": false,
-        "group": false,
-        "isActive": false
-    },
-    {
-        "photo": "../../assets/avatar-placeholder.jpg",
-        "nameUser": "Stiven",
-        "LastTime_Message": "1:00a.m",
-        "LastContent_Message": "MELOOOOOOOOO",
-        "unread": false,
-        "group": false,
-        "isActive": false
-    },
-    {
-        "photo": "../../assets/avatar-placeholder.jpg",
-        "nameUser": "Mauro",
-        "LastTime_Message": "5:00p.m",
-        "LastContent_Message": "Puro Full-Stack",
-        "unread": false,
-        "group": false,
-        "isActive": true
-    },
-    {
-        "photo": "../../assets/avatar-placeholder.jpg",
-        "nameUser": "Mauro",
-        "LastTime_Message": "5:00p.m",
-        "LastContent_Message": "Puro Full-Stack",
-        "unread": false,
-        "group": false,
-        "isActive": true
-    },
-    {
-        "photo": "../../assets/avatar-placeholder.jpg",
-        "nameUser": "Magestic",
-        "LastTime_Message": "5:00p.m",
-        "LastContent_Message": "Puro Full-Stack",
-        "unread": false,
-        "group": false,
-        "isActive": true
-    },
-    {
-        "photo": "../../assets/avatar-placeholder.jpg",
-        "nameUser": "Lucasz",
-        "LastTime_Message": "5:00p.m",
-        "LastContent_Message": "Puro",
-        "unread": false,
-        "group": false,
-        "isActive": true
-    },
-    {
-        "photo": "../../assets/avatar-placeholder.jpg",
-        "nameUser": "Samir",
-        "LastTime_Message": "5:00p.m",
-        "LastContent_Message": "Puro Full-Stack",
-        "unread": false,
-        "group": false,
-        "isActive": true
+        "id": 2,
+        "image": "",
+        "name": "Samir",
+        "isGroup": false,
+        "isActive": true,
+        "messages": [
+            {
+                "id": 1,
+                "content": "Me mama el CSS",
+                "time": "1:00 p.m",
+                "send": false,
+                "read": true
+            },
+            {
+                "id": 2,
+                "content": "A mi me cuesta mucho",
+                "time": "1:10 p.m",
+                "send": true,
+                "read": false
+            }
+        ]
     }
 ]

@@ -1,9 +1,8 @@
-import * as React from 'react';
 import { Box } from '@mui/system';
-import PropTypes from 'prop-types';
+import { useEffect, useRef, useState } from 'react';
 
 function OTPInput({ separator, length, value, onChange }) {
-  const inputRefs = React.useRef(new Array(length).fill(null));
+  const inputRefs = useRef(new Array(length).fill(null));
 
   const focusInput = (targetIndex) => {
     const targetInput = inputRefs.current[targetIndex];
@@ -124,7 +123,7 @@ function OTPInput({ separator, length, value, onChange }) {
   return (
     <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}> {/* Aumenta el espacio entre inputs */}
       {new Array(length).fill(null).map((_, index) => (
-        <React.Fragment key={index}>
+        <div key={index}>
           <input
             ref={(ele) => {
               inputRefs.current[index] = ele;
@@ -141,21 +140,14 @@ function OTPInput({ separator, length, value, onChange }) {
             aria-label={`Digit ${index + 1} of OTP`}
           />
           {index === length - 1 ? null : separator}
-        </React.Fragment>
+        </div>
       ))}
     </Box>
   );
 }
 
-OTPInput.propTypes = {
-  length: PropTypes.number.isRequired,
-  onChange: PropTypes.func.isRequired,
-  separator: PropTypes.node,
-  value: PropTypes.string.isRequired,
-};
-
 export function OtpVerification() {
-  const [otp, setOtp] = React.useState('');
+  const [otp, setOtp] = useState("");
 
   const handleSubmit = () => {
     // Aquí puedes manejar la lógica de envío del formulario o cualquier otra acción necesaria
@@ -163,7 +155,7 @@ export function OtpVerification() {
   };
 
    // Efecto para manejar el cambio en el OTP
-   React.useEffect(() => {
+   useEffect(() => {
     if (otp.length === 6) {
       handleSubmit(); // Llama a handleSubmit cuando todos los campos estén llenos
     }
@@ -188,8 +180,6 @@ export function OtpVerification() {
           <p className="text-grey-medium font-bold pb-1">¿No recibiste el código?</p>
           <button className="text-green-main uppercase">Reenviar código</button>
         </div>
-      
-        
       </main>
     </div>
   );
