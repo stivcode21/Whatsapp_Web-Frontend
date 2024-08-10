@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 import Avatar from "./Avatar"
 
-import { ChatBubble, DataUsage, Settings } from "@mui/icons-material"
+import { ChatBubble, DataUsage, MailOutline, Settings } from "@mui/icons-material"
 
 function MenuLink({ to, children }) {
   return (
@@ -26,6 +26,9 @@ export default function Navbar() {
             </MenuLink>
             <MenuLink to="/states">
               <DataUsage />
+            </MenuLink>
+            <MenuLink to="/contacts">
+              <MailOutline />
             </MenuLink>
           </div>
           <div className="flex usm:gap-10 sm:flex-col gap-4">

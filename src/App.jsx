@@ -8,6 +8,7 @@ const Settings = lazy(() => import("./pages/Settings/Settings"))
 const Chats = lazy(() => import("./pages/Chats/Chats"))
 const States = lazy(() => import("./pages/States/States"))
 const CreateProfile = lazy(() => import("./pages/CreateProfile/CreateProfile"))
+import Contacts from "./pages/Contacts/Contacts";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
           {
             path: "states",
             element: <States />
+          },
+          {
+            path: "contacts",
+            element: <Contacts />
           },
           {
             path: "settings",
