@@ -21,6 +21,7 @@ export const PalleteColors = {
     green: {
         main: colors.green,
         dark: colors.greenDark,
+        100: alpha(colors.green, .1),
         300: alpha(colors.green, .3),
         500: alpha(colors.green, .5),
         700: alpha(colors.green, .7),

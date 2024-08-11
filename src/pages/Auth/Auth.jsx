@@ -4,9 +4,9 @@ import { useAuth } from "../../hooks/useAuth"
 export default function Auth() {
   const { isAuthenticated, isLoading } = useAuth()
 
-  if(isAuthenticated) return <Outlet />
+  if(!isAuthenticated) return <Navigate to="/login" />
 
-  if(!isLoading) return <Navigate to="/login" />
+  if(isAuthenticated && !isLoading) return <Outlet />
 
   return (
     <main className="h-[100vh] flex items-center justify-center bg-blue-black">

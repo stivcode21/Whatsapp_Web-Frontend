@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom"
 import Avatar from "./Avatar"
+import { useAuth } from "../hooks/useAuth"
 
 import { ChatBubble, DataUsage, MailOutline, Settings } from "@mui/icons-material"
 
@@ -16,6 +17,10 @@ function MenuLink({ to, children }) {
 }
 
 export default function Navbar() {
+  const { user } = useAuth()
+
+  console.log(user)
+
   return (
     <section className="border-grey-border overflow-y-auto flex usm:bg-blue-black border-t-[1px] w-full sm:max-w-[60px] border-r-[1px] bg-blue-dark">
       <nav className="flex w-full items-center justify-center">
@@ -36,7 +41,7 @@ export default function Navbar() {
               <Settings />  
             </MenuLink>
             <MenuLink to="/profile">
-              <Avatar className="size-[32px]"/>
+              <Avatar className="size-[32px]" src={user.image}/>
             </MenuLink>
           </div>
         </ul>

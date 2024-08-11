@@ -1,7 +1,10 @@
 import InputSearch from "../../components/InputSearch";
 import { getDataForm } from "../../utils/form";
 import { URL } from "../../constants";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import Avatar from "../../components/Avatar";
+import { Add } from "@mui/icons-material";
+import { useAuth } from "../../hooks/useAuth"
 
 function debounce(callback, delay) {
   let timeoutId;
@@ -14,15 +17,10 @@ function debounce(callback, delay) {
   }
 }
 
-// return function(...args) {
-//     clearTimeout(timeoutId);
-//     timeoutId = setTimeout(() => {
-//       func.apply(this, args);
-//     }, delay);
-//   };
-
 export default function Contacts() {
+  const { user, updateContacts } = useAuth()
   const [users, setUsers] = useState([])
+  const inputRef = useRef(null)
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -32,8 +30,10 @@ export default function Contacts() {
     const formElement = event.target.closest("form")
     const email = getDataForm(formElement).email
 
+    if(email.length <= 0) return setUsers([])
+
     try {
-      const response = await fetch(URL["contact"] + "add", {
+      const response = await fetch(URL["contact"] + "filter", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -51,35 +51,63 @@ export default function Contacts() {
     }
   }
 
+  async function handleClick(id) {
+    const response = await fetch(URL["contact"] + "add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id,
+        userId: user.id
+      })
+    })
+
+    const newContact = await response.json()
+    updateContacts(newContact)
+    setUsers([])
+  }
+
   return (
     <div className="flex flex-col h-full">
       <header className="h-[60px] px-5 flex items-center">
         <h1 className="text-2xl font-bold text-[white]">Contactos</h1>
       </header>
-      <form className="relative flex" onSubmit={handleSubmit} onChange={debounce(handleChange, 1000)}>
+      <form className="flex flex-wrap" onSubmit={handleSubmit} onChange={debounce(handleChange, 1000)}>
         <InputSearch
           name="email"
           placeholder="Buscar email"
+          ref={inputRef}
         />
+        <div className="mx-4 relative px-4 w-full">
+          <UsersFounded users={users} onClick={handleClick}/>
+        </div>
       </form>
-      <div className="relative">
-        <UsersFounded users={users}/>
+      <div>
       </div>
     </div>
   )
 }
 
-function UsersFounded({ users }) {
-  if(users.length < 0) return
+function UsersFounded({ users, onClick }) {
+  if(users.length <= 0) return
 
   return (
-    <div className="border absolute left-0 px-4">
+    <div className="cursor-pointer inset-x-0 bg-grey-input absolute text-white p-4 flex flex-col gap-2 border-t-[1px] border-grey-border rounded-br rounded-bl animate-fadeIn">
       {
         users.map(user => {
           return (
-            <div key={user.id}>
-              <p> {user.name} </p>
-              <p> {user.email} </p>
+            <div key={user.id} className="px-2 grid grid-cols-[auto_1fr_auto] items-center text-sm gap-2 py-2 hover:bg-blue-black rounded" onClick={() => onClick(user.id)}>
+              <div>
+                <Avatar src={user.image} className="size-10"/>
+              </div>
+              <div>
+                <h3 className="text-nowrap text-bold w-full overflow text-truncate text-green-main"> {user.name} </h3>
+                <p className="text-xs overflow text-truncate w-full text-nowrap text-grey-light"> {user.email} </p>
+              </div>
+              <div className="rounded-full text-green-main bg-green-100 p-[4px]">
+                <Add />
+              </div>
             </div>
           )
         })
