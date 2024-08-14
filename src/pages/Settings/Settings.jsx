@@ -50,7 +50,7 @@ export default function Settings() {
           to="/profile"
           className="h-[100px] flex items-center cursor-pointer hover:bg-blue-dark"
         >
-          <Avatar className="size-[82px] my-2 mx-4"/>
+          <Avatar src={user.image} className="size-[82px] my-2 mx-4"/>
           <div className="info">
             <h3 className="text-[17px] font-normal text-white">{ user?.name }</h3>
             <p className="text-[14px] text-grey-light opacity-[0.8]">{ user?.description }</p>

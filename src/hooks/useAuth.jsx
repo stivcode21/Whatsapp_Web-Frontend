@@ -25,11 +25,13 @@ export function AuthProvider({ children }) {
 
         const data = await response.json()
 
+        console.log(data)
+
         if(data.user) {
           if(data.user.image) {
             data.user.image = Buffer.from(data.user.image).toString("utf-8")
           }
-          logedUser(data.user)
+          logedUser(data)
         }
       } catch (error) {
         setIsLoading(false)
@@ -40,7 +42,8 @@ export function AuthProvider({ children }) {
   }, [])
 
   function logedUser(data) {
-    setUser(data)
+    setUser(data.user)
+    setContacts(data.contacts)
     setIsLoading(false)
     setIsAuthenticated(true)
   }

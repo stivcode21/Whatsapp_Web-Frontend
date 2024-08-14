@@ -18,7 +18,7 @@ function debounce(callback, delay) {
 }
 
 export default function Contacts() {
-  const { user, updateContacts } = useAuth()
+  const { user, updateContacts, contacts } = useAuth()
   const [users, setUsers] = useState([])
   const inputRef = useRef(null)
 
@@ -39,7 +39,8 @@ export default function Contacts() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          email
+          email,
+          id: user.id
         })
       })
 
@@ -84,34 +85,52 @@ export default function Contacts() {
         </div>
       </form>
       <div>
+        {
+          contacts.map(contact => {
+            return (
+              <div key={contact.id} className="cursor-pointer px-2 grid grid-cols-[auto_1fr] items-center text-sm gap-2 py-2 hover:bg-blue-black rounded">
+                <div>
+                  <Avatar src={contact.image} className="size-10"/>
+                </div>
+                <div>
+                  <h3 className="text-nowrap text-bold w-full overflow text-truncate text-green-main"> {contact.name} </h3>
+                  <p className="text-xs overflow text-truncate w-full text-nowrap text-grey-light"> {contact.email} </p>
+                </div>
+              </div>
+            )
+          })
+        }
       </div>
     </div>
   )
 }
 
 function UsersFounded({ users, onClick }) {
+  
   if(users.length <= 0) return
 
   return (
-    <div className="cursor-pointer inset-x-0 bg-grey-input absolute text-white p-4 flex flex-col gap-2 border-t-[1px] border-grey-border rounded-br rounded-bl animate-fadeIn">
-      {
-        users.map(user => {
-          return (
-            <div key={user.id} className="px-2 grid grid-cols-[auto_1fr_auto] items-center text-sm gap-2 py-2 hover:bg-blue-black rounded" onClick={() => onClick(user.id)}>
-              <div>
-                <Avatar src={user.image} className="size-10"/>
+    <div className="grid grid-rows-[0fr] inset-x-0 bg-grey-input absolute text-white border-t-[1px] border-grey-border rounded-br rounded-bl animate-fadeIn max-h-64">
+      <div className="flex flex-col gap-2 p-4 overflow-y-auto">
+        {
+          users.map(user => {
+            return (
+              <div key={user.id} className="cursor-pointer px-2 grid grid-cols-[auto_1fr_auto] items-center text-sm gap-2 py-2 hover:bg-blue-black rounded" onClick={() => onClick(user.id)}>
+                <div>
+                  <Avatar src={user.image} className="size-10"/>
+                </div>
+                <div>
+                  <h3 className="text-nowrap text-bold w-full overflow text-truncate text-green-main"> {user.name} </h3>
+                  <p className="text-xs overflow text-truncate w-full text-nowrap text-grey-light"> {user.email} </p>
+                </div>
+                <div className="rounded-full text-green-main bg-green-100 p-[4px]">
+                  <Add />
+                </div>
               </div>
-              <div>
-                <h3 className="text-nowrap text-bold w-full overflow text-truncate text-green-main"> {user.name} </h3>
-                <p className="text-xs overflow text-truncate w-full text-nowrap text-grey-light"> {user.email} </p>
-              </div>
-              <div className="rounded-full text-green-main bg-green-100 p-[4px]">
-                <Add />
-              </div>
-            </div>
-          )
-        })
-      }
+            )
+          })
+        }
+      </div>
     </div>
   )
 }

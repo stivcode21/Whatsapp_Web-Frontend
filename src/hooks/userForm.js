@@ -55,9 +55,9 @@ export default function useForm(inputTypes) {
 
       const data = await response.json()
 
-      if(data.id) {
-        if(data.image) {
-          data.image = Buffer.from(data.image).toString("utf-8")
+      if(data.user.id) {
+        if(data.user.image) {
+          data.user.image = Buffer.from(data.image).toString("utf-8")
         }
         logedUser(data)
         navigate(NAVIGATE_URL[endpoint])

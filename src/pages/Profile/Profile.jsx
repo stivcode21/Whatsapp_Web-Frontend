@@ -12,7 +12,7 @@ export default function Profile() {
       </header>
       <div className="flex flex-col flex-1">
         <div className="my-7">
-          <Avatar className="size-[200px] mx-auto"/>
+          <Avatar src={user.image} className="size-[200px] mx-auto"/>
         </div>
         <form className="px-[30px] flex flex-col">
           <label htmlFor="name" className="p-[14px 0 10px] text-grey-light mb-[10px]">
