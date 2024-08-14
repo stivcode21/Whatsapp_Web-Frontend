@@ -25,7 +25,7 @@ function InputImage(props) {
     <div className="mb-8 relative">
     <label 
       htmlFor={props.id} 
-      className="flex relative flex size-[120px] rounded-full border overflow-hidden border-4 border-white outline outline-green-main outline-2"
+      className="flex relative size-[120px] rounded-full overflow-hidden border-4 border-white outline outline-green-main outline-2"
     >
       <img 
         src="../../../assets/default.jpg" 
@@ -64,7 +64,7 @@ export default function Input(props) {
         {
           props.icon && ICON_NAMES[props.icon]
         }
-        <input className="text-base text-grey-light py-3 flex-1 placeholder:text-grey-medium"
+        <input className="text-base text-grey-light py-3 w-full placeholder:text-grey-medium"
           type={props.type} 
           name={props.name} 
           id={props.id}

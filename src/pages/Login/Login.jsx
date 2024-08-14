@@ -26,7 +26,7 @@ export default function Login() {
     
     return (
         <div className="bg-blue-darker h-screen flex">
-            <section className='flex flex-1 items-center justify-center'>
+            <section className='flex flex-1 items-center justify-center p-6'>
                 <form
                     onSubmit={(event) => handleSubmit(event, typeForm, "POST")}
                     className="flex flex-col text-center w-full max-w-sm items-center"
@@ -61,13 +61,19 @@ export default function Login() {
                             }
                         </div>
                     </Input>
-                    <button className="py-2 px-4 bg-green-dark mt-8 text-green-main rounded-[5px]" type="submit">
+                    <button className="py-2 px-4 bg-green-dark text-green-main rounded-[5px] w-full" type="submit">
                         Enviar
                     </button>
+
+                    <div className="text-grey-medium mt-9 flex gap-2 text-nowrap flex-wrap justify-center">
+                        <span>
+                            { typeForm === "login" ? "¿No tienes una cuenta?" : "¿Ya tienes una cuenta?"}
+                        </span>
+                        <button type="button" onClick={handleClickForm} className="text-sm text-green-main underline">
+                            { typeForm === "login" ? "crear una cuenta" : "inicia sesión"}
+                        </button>
+                    </div>
                     
-                    <button type="button" onClick={handleClickForm} className="text-grey-light">
-                        { typeForm === "login" ? "Crear cuenta" : "Iniciar sesión"}
-                    </button>
                 </form>
             </section>
             <section className='flex-1 bg-blue-black hidden md:flex items-center justify-center'> 
