@@ -55,6 +55,8 @@ export default function useForm(inputTypes) {
 
       const data = await response.json()
 
+      console.log(data)
+
       if(data.user.id) {
         if(data.user.image) {
           data.user.image = Buffer.from(data.image).toString("utf-8")
