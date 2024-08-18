@@ -4,22 +4,7 @@ import { NAVIGATE_URL, URL } from "../constants";
 import { useAuth } from "./useAuth";
 import { useNavigate } from "react-router-dom";
 import { Buffer } from "buffer";
-
-function imagetoBase64(image) {
-  return new Promise((resolve, reject) => {
-    const fileReader = new FileReader()
-
-    fileReader.addEventListener("load", () => {
-      resolve(fileReader.result)
-    })
-
-    fileReader.addEventListener("error", (error) => {
-      reject(error)
-    })
-
-    fileReader.readAsDataURL(image)
-  })
-}
+import { imagetoBase64 } from "../utils/images"
 
 export default function useForm(inputTypes) {
   const [message, setMessage] = useState("")
@@ -55,19 +40,18 @@ export default function useForm(inputTypes) {
 
       const data = await response.json()
 
-      console.log(data)
-
-      if(data.user.id) {
-        if(data.user.image) {
-          data.user.image = Buffer.from(data.image).toString("utf-8")
-        }
-        logedUser(data)
-        navigate(NAVIGATE_URL[endpoint])
-      }else {
-        setMessage(data.message)
+      if(!response.ok) {
+        return setMessage(data.message)
       }
+
+      if(data.user.image) {
+        data.user.image = Buffer.from(data.user.image).toString("utf-8")
+      }
+      
+      logedUser(data)
+      navigate(NAVIGATE_URL[endpoint])
     } catch (error) {
-      console.log(error)
+      console.log(error.message)
     }
   }
 
