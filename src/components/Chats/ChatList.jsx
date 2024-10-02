@@ -7,7 +7,7 @@ import FooterPriv from "./FooterPriv"
 
 const ChatList = ({ list, onSelect }) => {
   return (
-    <section className="bg-blue-black flex flex-col flex-1 justify-between overflow-y-auto">
+    <section className="bg-blue-dark flex flex-col flex-1 justify-between overflow-y-auto">
       <List>
         {list.map((chat, index) => (
           <ListItem key={index} className="hover:bg-blue-dark" onClick={() => onSelect(index)}>
