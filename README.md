@@ -1,74 +1,77 @@
-# WhatsApp Web Frontend
-![Previu](https://i.ibb.co/GsK2GPx/whatsapp-clone.jpg)
+<p align="center">
+  <img src="https://i.postimg.cc/6ptjb5Jx/WHATSAPP-3.webp" alt="WhatsApp Clone Preview" width="700" height="500" />
+</p>
 
-Welcome to the **WhatsApp Web Frontend** project! This is a frontend clone of WhatsApp, created using **React** and **Vite.js**. The goal of this project is to learn and collaborate with a group of friends by implementing a modern, user-friendly interface with key features from WhatsApp.
+<div align="center">
+  <img src="https://readme-typing-svg.herokuapp.com/?font=Chela%20One&size=55&center=true&vCenter=true&width=500&height=70&duration=4000&lines=WhatsApp+Clone;&color=fff;" />
+</div>
 
-## 🌟 Features
+<p align="center">
+  <strong>Réplica funcional de WhatsApp Web desarrollada en equipo con React y Material UI.</strong><br/>
+  <em>Proyecto colaborativo con interfaz responsive y funcionalidades clave de mensajería.</em>
+</p>
 
-- **Authentication**: Login with email and password.
-- **OTP Verification**: Secure your account using OTP (One Time Password) for additional verification.
-- **Profile Creation**: Create a user profile with a photo.
-- **Messaging**: Send messages with emojis, view statuses, and manage your chats.
-- **Calls & Settings**: Access sections for calls and app settings, just like WhatsApp.
+---
 
-## 🎨 Design and Libraries
+## ▫️Objetivos
 
-We've put a lot of effort into creating a clean and pleasant design. The app is fully componentized for easy maintenance and scalability. Here are some key libraries used in the project:
+El objetivo de **WhatsApp Clone** fue replicar y personalizar varias secciones de la versión web oficial de WhatsApp, con fines educativos y de práctica en trabajo colaborativo.
 
-- **@emoji-mart/react** & **emoji-mart**: For emoji support in messages.
-- **@mui/material**: Material UI components for a responsive and sleek design.
-- **Tailwind CSS**: Utility-first CSS framework for rapid UI development.
+Este proyecto buscaba:
+- Adquirir experiencia en **metodología Scrum** y trabajo en equipo.
+- Familiarizarse con **frameworks modernos** y librerías de componentes.
+- Implementar **funcionalidades reales** como chat, estados y personalización de perfil.
 
-## 📁 Project Structure & Routes
+---
 
-Navigate through the following routes to explore different sections of the project:
+## ▫️Proceso de desarrollo
 
-- `/`: Login page (`<AuthLogin />`)
-- `/verification`: OTP verification (`<OtpVerification />`)
-- `/create-profile`: Profile creation with photo (`<AuthCreateProfile />`)
-- `/main`: Main chat section (`<Principal />`)
+- **Tecnologías principales:**
+  - **React** como framework base para la construcción de la interfaz.
+  - **Material UI** para componentes listos y con estilo profesional.
+  - **TailwindCSS** para personalización rápida de estilos y temas.
+  - **React Router** para navegación fluida entre secciones.
 
-## 🚀 Getting Started
+- **Funcionalidades clave:**
+  - Autenticación y gestión de perfiles de usuario.
+  - Chat funcional con envío de mensajes y emojis.
+  - Sección de estados de usuario.
+  - Edición de perfil y personalización de tema de colores.
+  - Interfaz adaptada a dispositivos móviles y escritorio.
 
-### Prerequisites
+---
 
-- Ensure you have **Node.js** installed on your machine.
-- Familiarity with **Git**, **Vite.js**, and **React**.
+## ▫️Conclusión
 
-### Installation
+**WhatsApp Clone** resultó en una aplicación funcional que demostró nuestra capacidad para adaptarnos a nuevas tecnologías y trabajar de forma colaborativa.
 
-1. **Clone the repository:**
+Entre los aprendizajes más destacados:
+- Uso de **React Router** para manejar rutas dinámicas.
+- Implementación de interfaces con **Material UI** y personalización con **TailwindCSS**.
+- Manejo de estados y datos en tiempo real para simular una experiencia de mensajería.
+- Trabajo en equipo siguiendo **metodología Scrum**.
 
-   ```bash
-   git clone https://github.com/yourusername/whatsapp-web-frontend.git
+---
 
-2. **Navigate to the project folder:**
+## ▫️Tools
 
-   ```bash
-   cd whatsapp-web-frontend
-   
-3. **Install dependencies:**
-    ```bash
-     npm install
+<img src="https://skillicons.dev/icons?i=react,tailwind,materialui,vercel" />
 
-4. **Install dependencies:**
+---
 
-   ```bash
-   npm run dev
-## 🔄 Making Contributions
-We welcome contributions to this project! Here's how you can get involved:
-1. **Fork the repository** to your GitHub account.
-2. **Clone your fork** to your local machine.
-3. **Create a new branch** for your feature or bug fix:
-   ```bash
-   git checkout -b feature-name
-4. **Make your changes and commit** them with a meaningful message.
-   
-5. **Push to your fork** and submit a pull request to this repository.
-This project may not be perfect, but we are learning and growing as a team. Feel free to check out the project, explore the code, and contribute if you're interested!
-## 🔧 Technologies
-- **React**: v18.2.0
-- **Vite.js**: v5.2.0
-- **Tailwind CSS**: v3.4.4
-- **Material UI**: v5.15.20
-- **Emoji Mart**: v5.6.0
+## ▫️Enlaces
+
+<div align="center"> 
+  <a href="https://wpp-clone-98b2e.web.app/" target="_blank">
+    <img src="https://img.shields.io/badge/Website-1a73e8?style=for-the-badge&logo=google-chrome&logoColor=white" />
+  </a>
+  <a href="https://discord.gg/RMrVdprfJe" target="_blank">
+    <img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" />
+  </a>
+  <a href="https://www.linkedin.com/in/stivcode21/" target="_blank" >
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+  <a href="https://www.stivcode.com/" target="_blank">
+     <img src="https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white" />
+  </a>
+</div>
